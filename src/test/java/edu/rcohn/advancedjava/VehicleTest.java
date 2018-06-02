@@ -1,4 +1,4 @@
-package com.rcohn-info3030
+package edu.rcohn.advancedjava;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,46 +7,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class Vehicle {
-    // Vehicle components
-    private string engine;
-    private List<string> wheels;
-    private string color;
-
-    public Vehicle(string engine, List<string> wheels, string color ) {
-        this.engine = engine;
-        this.wheels = wheels;
-        this.color = color;
-    }
-    // sets the color of the vehicle
-    public void setColor(string color) {this.color = color;}
-    // gets the color of the vehicle
-    public string getColor() {
-        return color;
-    }
-    // returns the numbers of elements in wheels list
-    public int getWheelsNumber() {
-        return wheels.size();
-    }
-
-}
-
 public class VehicleTest {
 
-    private string engine;
     private List<string> wheels;
-    private string color;
+    private String color;
     private Vehicle vehicle;
 
     @Before
     public void setup() {
-        engine = "Hot Rod";
         wheels = new List<string>;
         wheels.add("Front Left");
         wheels.add("Front Right");
         wheels.add("Back Left");
-        color = "Blue";
-        vehicle = new Vehicle(string engine, List<string> wheels, string color);
+        this.color = "Blue";
+        vehicle = new Vehicle(List<string> wheels, color);
     }
 
     @Test

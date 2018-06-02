@@ -1,0 +1,23 @@
+package edu.rcohn.advancedjava;
+
+public class Vehicle {
+    // Vehicle components
+    private List<string> wheels;
+    private String color;
+
+    public Vehicle(List<string> wheels, String color ) {
+        this.wheels = wheels;
+        this.color = color;
+    }
+    // sets the color of the vehicle
+    public void setColor(String color) {this.color = color;}
+    // gets the color of the vehicle
+    public String getColor() {
+        return color;
+    }
+    // returns the numbers of elements in wheels list
+    public int getWheelsNumber() {
+        return wheels.size();
+    }
+
+}
