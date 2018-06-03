@@ -13,3 +13,16 @@ rcohn-app.iml
 .idea/libraries/Maven__org_jetbrains_annotations_java5_16_0_2.xml
 .idea/libraries/Maven__junit_junit_3_8_1.xml
 .idea/compiler.xml
+.idea/encodings.xml
+.idea/libraries/Maven__junit_junit_4_12.xml
+.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+src/main/java/edu/rcohn/advancedjava/App.java
+src/test/java/edu/rcohn/advancedjava/AppTest.java
+target/classes/edu/rcohn/advancedjava/App.class
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/surefire-reports/edu.rcohn.advancedjava.AppTest.txt
+target/surefire-reports/TEST-edu.rcohn.advancedjava.AppTest.xml
+target/test-classes/edu/rcohn/advancedjava/AppTest.class
