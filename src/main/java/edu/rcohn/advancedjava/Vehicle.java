@@ -2,26 +2,57 @@ package edu.rcohn.advancedjava;
 
 import java.util.List;
 
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ *
+ */
+
 public class Vehicle {
     // Vehicle components
     private List<String> wheels;
     private String color;
 
+    /**
+     *
+     * @param wheels list containing wheels
+     * @param color color of vehicle
+     */
+
     public Vehicle(List<String> wheels, String color ) {
         this.wheels = wheels;
         this.color = color;
     }
-    // sets the color of the vehicle
+
+    /**
+     *
+     * @param color color of vehicle
+     */
+
     public void setColor(String color) {this.color = color;}
-    // gets the color of the vehicle
+
+    /**
+     *
+     * @return color of vehicle
+     */
+
     public String getColor() {
         return color;
     }
 
+    /**
+     *
+     * @param wheels list containing wheels
+     */
+
     public void setWheels(List<String> wheels) {
-        this.wheels.clear();
-        this.wheels.addAll(wheels);
+        this.wheels = wheels;
     }
+
+    /**
+     *
+     * @return number of wheels
+     */
 
     // returns the numbers of elements in wheels list
     public int getWheelsNumber() { return wheels.size();}

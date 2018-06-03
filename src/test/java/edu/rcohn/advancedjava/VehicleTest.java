@@ -6,6 +6,10 @@ import junit.framework.TestSuite;
 
 import java.util.*;
 
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ */
 public class VehicleTest extends TestCase {
 
     /**
@@ -22,6 +26,11 @@ public class VehicleTest extends TestCase {
     private String color;
     private Vehicle vehicle;
 
+    /**
+     *
+     * @throws Exception
+     */
+
     public void setUp() throws Exception {
         super.setUp();
         wheels = new ArrayList<String>();
@@ -32,6 +41,7 @@ public class VehicleTest extends TestCase {
         wheels.add("Front Right");
         wheels.add("Back Left");
         vehicle.setWheels(wheels);
+
     }
 
     /**
@@ -53,11 +63,8 @@ public class VehicleTest extends TestCase {
     }
 
     public void testGetWheelsNumberPositive() {
-        assertEquals(0, vehicle.getWheelsNumber());
+        assertEquals(3, vehicle.getWheelsNumber());
     }
-
-    // NOTICE: it is a good idea to write tests that verify expected behavior in both positive and negative ways.
-    // ALSO NOTICE: I have separate tests for each specific test. Don't bunch up a tests into one test method.
 
     public void testGetWheelsNumberNegative() {
         assertNotSame( 4, vehicle.getWheelsNumber());
