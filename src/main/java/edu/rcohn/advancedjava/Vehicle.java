@@ -21,7 +21,7 @@ public class Vehicle {
     public void setWheels(List<String> wheels) {
         this.wheels.clear();
         this.wheels.addAll(wheels);
-        }
+    }
 
     // returns the numbers of elements in wheels list
     public int getWheelsNumber() { return wheels.size();}
