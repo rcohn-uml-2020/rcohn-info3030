@@ -20,7 +20,7 @@ public class VehicleTest extends TestCase {
 
     private List<String> wheels;
     private String color;
-    Vehicle vehicle;
+    private Vehicle vehicle;
 
     public void setUp() throws Exception {
         super.setUp();
@@ -53,7 +53,7 @@ public class VehicleTest extends TestCase {
     }
 
     public void testGetWheelsNumberPositive() {
-        assertEquals(3, vehicle.getWheelsNumber());
+        assertEquals(0, vehicle.getWheelsNumber());
     }
 
     // NOTICE: it is a good idea to write tests that verify expected behavior in both positive and negative ways.
