@@ -15,3 +15,11 @@ rcohn-app.iml
 .idea/libraries/Maven__junit_junit_3_8_1.xml
 .idea/encodings.xml
 .idea/compiler.xml
+target/test-classes/edu/rcohn/advancedjava/AppTest.class
+target/surefire-reports/TEST-edu.rcohn.advancedjava.AppTest.xml
+target/surefire-reports/edu.rcohn.advancedjava.AppTest.txt
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/classes/edu/rcohn/advancedjava/App.class
