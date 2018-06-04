@@ -1,0 +1,17 @@
+
+target/test-classes/edu/rcohn/advancedjava/VehicleTest.class
+target/surefire-reports/TEST-edu.rcohn.advancedjava.VehicleTest.xml
+target/surefire-reports/edu.rcohn.advancedjava.VehicleTest.txt
+rcohn-app.iml
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/uiDesigner.xml
+.idea/rcohn-info3030.iml
+.idea/modules.xml
+.idea/misc.xml
+.idea/libraries/Maven__org_jetbrains_annotations_java5_16_0_2.xml
+.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+.idea/libraries/Maven__junit_junit_4_12.xml
+.idea/libraries/Maven__junit_junit_3_8_1.xml
+.idea/encodings.xml
+.idea/compiler.xml
