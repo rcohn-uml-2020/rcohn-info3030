@@ -1,7 +1,14 @@
 package edu.rcohn.advancedjava;
 
 public class BasicStockService implements StockService {
-    public StockQuote getQuote(String basic){
-        return new StockQuote("");
+
+    final StockQuote quote;
+
+    BasicStockService() {
+        this.quote = new StockQuote();
+    }
+
+    public StockQuote getQuote(String symbol){
+        return quote;
     }
 }
