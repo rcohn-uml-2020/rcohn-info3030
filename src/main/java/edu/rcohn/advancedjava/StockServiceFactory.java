@@ -2,14 +2,29 @@ package edu.rcohn.advancedjava;
 
 public class StockServiceFactory implements StockService {
 
-    private StockQuote quote;
+    private final String symbol;
+    private final StockQuote quote;
 
-    StockServiceFactory() {
-       this.quote = new StockQuote();
+    public static class Builder {
+        private final String symbol;
+        private final StockQuote quote;
+
+        public Builder(String symbol) {
+            this.symbol = symbol;
+            this.quote = new StockQuote();
+        }
+
+        public StockService build() {
+            return new StockServiceFactory(this);
+        }
     }
 
-    public StockQuote getQuote(String symbol){
-        quote.setSymbol(symbol);
+    private StockServiceFactory(Builder builder) {
+        symbol = builder.symbol;
+        quote = builder.quote;
+    }
+
+    public StockQuote getQuote() {
         return quote;
     }
 }

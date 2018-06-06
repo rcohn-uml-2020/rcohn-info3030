@@ -27,7 +27,7 @@ public class StockServiceFactoryTest extends TestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        stockService = new StockServiceFactory();
+        stockService = new StockServiceFactory.Builder("AAPL").build();
     }
 
     /**
@@ -39,10 +39,10 @@ public class StockServiceFactoryTest extends TestCase {
     }
 
     public void testGetQuotePositive() {
-        assertEquals(71.5, stockService.getQuote("AAPL").getValue());
+        assertEquals(71.5, stockService.getQuote().getValue());
     }
 
     public void testGetQuoteNegative() {
-        assertNotSame(0.0, stockService.getQuote("AAPL").getValue());
+        assertNotSame(0.0, stockService.getQuote().getValue());
     }
 }

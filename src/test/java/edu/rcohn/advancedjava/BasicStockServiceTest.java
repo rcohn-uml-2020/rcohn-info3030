@@ -39,10 +39,10 @@ public class BasicStockServiceTest extends TestCase {
     }
 
     public void testGetQuotePositive() {
-        assertEquals(0.0, basicStockService.getQuote("").getValue());
+        assertEquals(0.0, basicStockService.getQuote().getValue());
     }
 
     public void testGetQuoteNegative() {
-        assertNotSame(1.0, basicStockService.getQuote("").getValue());
+        assertNotSame(1.0, basicStockService.getQuote().getValue());
     }
 }
