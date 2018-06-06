@@ -30,3 +30,12 @@ target/classes/edu/rcohn/advancedjava/StockServiceFactory.class
 target/classes/edu/rcohn/advancedjava/StockService.class
 target/classes/edu/rcohn/advancedjava/StockQuote.class
 target/classes/edu/rcohn/advancedjava/BasicStockService.class
+target/surefire-reports/edu.rcohn.advancedjava.BasicStockServiceTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.StockQuoteTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.StockServiceFactoryTest.txt
+target/surefire-reports/TEST-edu.rcohn.advancedjava.BasicStockServiceTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.StockQuoteTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.StockServiceFactoryTest.xml
+target/test-classes/edu/rcohn/advancedjava/BasicStockServiceTest.class
+target/test-classes/edu/rcohn/advancedjava/StockQuoteTest.class
+target/test-classes/edu/rcohn/advancedjava/StockServiceFactoryTest.class
