@@ -26,3 +26,7 @@ target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputF
 target/surefire-reports/edu.rcohn.advancedjava.AppTest.txt
 target/surefire-reports/TEST-edu.rcohn.advancedjava.AppTest.xml
 target/test-classes/edu/rcohn/advancedjava/AppTest.class
+target/classes/edu/rcohn/advancedjava/StockServiceFactory.class
+target/classes/edu/rcohn/advancedjava/StockService.class
+target/classes/edu/rcohn/advancedjava/StockQuote.class
+target/classes/edu/rcohn/advancedjava/BasicStockService.class
