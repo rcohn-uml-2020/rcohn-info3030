@@ -2,5 +2,5 @@ package edu.rcohn.advancedjava;
 
 public interface StockService {
 
-    StockQuote getQuote();
+    StockQuote getQuote(String symbol);
 }

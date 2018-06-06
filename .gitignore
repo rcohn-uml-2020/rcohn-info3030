@@ -39,3 +39,5 @@ target/surefire-reports/TEST-edu.rcohn.advancedjava.StockServiceFactoryTest.xml
 target/test-classes/edu/rcohn/advancedjava/BasicStockServiceTest.class
 target/test-classes/edu/rcohn/advancedjava/StockQuoteTest.class
 target/test-classes/edu/rcohn/advancedjava/StockServiceFactoryTest.class
+target/classes/edu/rcohn/advancedjava/StockServiceFactory$Builder.class
+target/classes/edu/rcohn/advancedjava/StockServiceFactory$1.class

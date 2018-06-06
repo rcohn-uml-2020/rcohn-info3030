@@ -9,7 +9,7 @@ public class BasicStockService implements StockService {
         this.quote = new StockQuote();
     }
 
-    public StockQuote getQuote(){
+    public StockQuote getQuote(String symbol){
         return quote;
     }
 }
