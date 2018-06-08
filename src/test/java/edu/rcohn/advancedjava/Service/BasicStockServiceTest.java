@@ -1,8 +1,11 @@
-package edu.rcohn.advancedjava;
+package edu.rcohn.advancedjava.Service;
 
+import edu.rcohn.advancedjava.Service.BasicStockService;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import java.math.BigDecimal;
 
 /**
  * @author rcohn
@@ -20,7 +23,7 @@ public class BasicStockServiceTest extends TestCase {
         super( basicStockServiceTest);
     }
 
-    BasicStockService basicStockService;
+    private BasicStockService basicStockService;
 
     /**
      * @throws Exception
@@ -39,10 +42,10 @@ public class BasicStockServiceTest extends TestCase {
     }
 
     public void testGetQuotePositive() {
-        assertEquals(0.0, basicStockService.getQuote("").getValue());
+        assertEquals(BigDecimal.valueOf(115.00), basicStockService.getQuote("AAPL").getValue());
     }
 
     public void testGetQuoteNegative() {
-        assertNotSame(1.0, basicStockService.getQuote("").getValue());
+        assertNotSame(BigDecimal.valueOf(0.00), basicStockService.getQuote("AAPL").getValue());
     }
 }

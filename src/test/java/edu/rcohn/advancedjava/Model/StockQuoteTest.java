@@ -1,8 +1,12 @@
-package edu.rcohn.advancedjava;
+package edu.rcohn.advancedjava.Model;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import java.math.BigDecimal;
+import java.util.GregorianCalendar;
+import java.util.Date;
 
 /**
  * @author rcohn
@@ -27,8 +31,8 @@ public class StockQuoteTest extends TestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        stockQuote = new StockQuote();
-        stockQuote.setSymbol("AAPL");
+        Date date = new GregorianCalendar().getTime();
+        stockQuote = new StockQuote("AAPL", date);
     }
 
     /**
@@ -40,10 +44,10 @@ public class StockQuoteTest extends TestCase {
     }
 
     public void testGetValuePositive() {
-        assertEquals(71.5, stockQuote.getValue());
+        assertEquals(BigDecimal.valueOf(115.00), stockQuote.getValue());
     }
 
     public void testGetValueNegative() {
-        assertNotSame(0.0, stockQuote.getValue());
+        assertNotSame(BigDecimal.valueOf(0.00), stockQuote.getValue());
     }
 }
