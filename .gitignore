@@ -17,3 +17,6 @@ target/classes/edu/rcohn/advancedjava/Service/StockServiceFactory.class
 target/classes/edu/rcohn/advancedjava/Service/StockService.class
 target/classes/edu/rcohn/advancedjava/Service/BasicStockService.class
 target/classes/edu/rcohn/advancedjava/Model/StockQuote.class
+target/test-classes/edu/rcohn/advancedjava/Test/VehicleTest.class
+target/surefire-reports/edu.rcohn.advancedjava.Test.VehicleTest.txt
+target/classes/edu/rcohn/advancedjava/Test/Vehicle.class
