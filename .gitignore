@@ -40,3 +40,6 @@ target/surefire-reports/edu.rcohn.advancedjava.StockServiceFactoryTest.txt
 target/test-classes/edu/rcohn/advancedjava/Model/StockQuoteTest.class
 target/test-classes/edu/rcohn/advancedjava/Service/BasicStockServiceTest.class
 target/test-classes/edu/rcohn/advancedjava/Service/StockServiceFactoryTest.class
+target/test-classes/edu/rcohn/advancedjava/Test/VehicleTest.class
+target/surefire-reports/edu.rcohn.advancedjava.Test.VehicleTest.txt
+target/classes/edu/rcohn/advancedjava/Test/Vehicle.class

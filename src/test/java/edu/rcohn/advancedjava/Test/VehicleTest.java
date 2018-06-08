@@ -1,4 +1,4 @@
-package edu.rcohn.advancedjava;
+package edu.rcohn.advancedjava.Test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
