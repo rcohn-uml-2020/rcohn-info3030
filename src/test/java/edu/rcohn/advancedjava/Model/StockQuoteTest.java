@@ -44,10 +44,10 @@ public class StockQuoteTest extends TestCase {
     }
 
     public void testGetValuePositive() {
-        assertEquals(BigDecimal.valueOf(115.00), stockQuote.getValue());
+        assertEquals(BigDecimal.valueOf(84.99), stockQuote.getValue());
     }
 
     public void testGetValueNegative() {
-        assertNotSame(BigDecimal.valueOf(0.00), stockQuote.getValue());
+        assertNotSame(BigDecimal.valueOf(0), stockQuote.getValue());
     }
 }

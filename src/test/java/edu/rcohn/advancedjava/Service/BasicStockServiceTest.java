@@ -1,11 +1,12 @@
 package edu.rcohn.advancedjava.Service;
 
-import edu.rcohn.advancedjava.Service.BasicStockService;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * @author rcohn
@@ -42,10 +43,19 @@ public class BasicStockServiceTest extends TestCase {
     }
 
     public void testGetQuotePositive() {
-        assertEquals(BigDecimal.valueOf(115.00), basicStockService.getQuote("AAPL").getValue());
+        assertEquals(BigDecimal.valueOf(84.99), basicStockService.getQuote("AAPL").getValue());
     }
 
     public void testGetQuoteNegative() {
-        assertNotSame(BigDecimal.valueOf(0.00), basicStockService.getQuote("AAPL").getValue());
+        assertNotSame(BigDecimal.valueOf(0), basicStockService.getQuote("AAPL").getValue());
     }
+
+    public void testGetQuoteListPositive(){
+        assertEquals(BigDecimal.valueOf(84.99),basicStockService.getQuote("AAPL",(GregorianCalendar) Calendar.getInstance(), (GregorianCalendar) Calendar.getInstance()).get(0).getValue());
+    }
+
+    public void testGetQuoteListNegative(){
+        assertNotSame(BigDecimal.valueOf(0),basicStockService.getQuote("AAPL",(GregorianCalendar) Calendar.getInstance(), (GregorianCalendar) Calendar.getInstance()).get(0).getValue());
+    }
+
 }

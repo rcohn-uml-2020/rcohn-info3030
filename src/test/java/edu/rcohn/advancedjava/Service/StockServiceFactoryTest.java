@@ -42,10 +42,10 @@ public class StockServiceFactoryTest extends TestCase {
     }
 
     public void testGetQuotePositive() {
-        assertEquals(BigDecimal.valueOf(115.00), factory.create().getQuote("AAPL").getValue());
+        assertEquals(BigDecimal.valueOf(84.99), factory.create().getQuote("AAPL").getValue());
     }
 
     public void testGetQuoteNegative() {
-        assertNotSame(BigDecimal.valueOf(0.00),factory.create().getQuote("AAPL").getValue());
+        assertNotSame(BigDecimal.valueOf(0),factory.create().getQuote("AAPL").getValue());
     }
 }
