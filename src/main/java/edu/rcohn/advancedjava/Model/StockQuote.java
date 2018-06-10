@@ -3,6 +3,7 @@ package edu.rcohn.advancedjava.Model;
 import java.util.Date;
 
 import java.math.BigDecimal;
+import java.util.GregorianCalendar;
 
 public class StockQuote {
 
@@ -10,13 +11,18 @@ public class StockQuote {
     private Date date;
     private BigDecimal value;
 
-    public StockQuote(String symbol, Date date){
+    public StockQuote(String symbol, GregorianCalendar day){
         this.symbol = symbol;
-        this.date = date;
-        this.value = BigDecimal.valueOf(115.00);
+        this.date = day.getTime();
+        this.value = BigDecimal.valueOf(84.99);
     }
 
     public BigDecimal getValue() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return symbol + " on " + date + ": $" + value + "\n";
     }
 }

@@ -31,8 +31,8 @@ public class StockQuoteTest extends TestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        Date date = new GregorianCalendar().getTime();
-        stockQuote = new StockQuote("AAPL", date);
+        GregorianCalendar day = new GregorianCalendar();
+        stockQuote = new StockQuote("AAPL", day);
     }
 
     /**
