@@ -3,7 +3,7 @@ package edu.rcohn.advancedjava.Model;
 import java.util.Date;
 
 import java.math.BigDecimal;
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 public class StockQuote {
 
@@ -11,7 +11,7 @@ public class StockQuote {
     private Date date;
     private BigDecimal value;
 
-    public StockQuote(String symbol, GregorianCalendar day){
+    public StockQuote(String symbol, Calendar day){
         this.symbol = symbol;
         this.date = day.getTime();
         this.value = BigDecimal.valueOf(84.99);

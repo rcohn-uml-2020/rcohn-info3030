@@ -6,7 +6,6 @@ import junit.framework.TestSuite;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * @author rcohn
@@ -51,11 +50,11 @@ public class BasicStockServiceTest extends TestCase {
     }
 
     public void testGetQuoteListPositive(){
-        assertEquals(BigDecimal.valueOf(84.99),basicStockService.getQuote("AAPL",(GregorianCalendar) Calendar.getInstance(), (GregorianCalendar) Calendar.getInstance()).get(0).getValue());
+        assertEquals(BigDecimal.valueOf(84.99),basicStockService.getQuote("AAPL",Calendar.getInstance(), Calendar.getInstance()).get(0).getValue());
     }
 
     public void testGetQuoteListNegative(){
-        assertNotSame(BigDecimal.valueOf(0),basicStockService.getQuote("AAPL",(GregorianCalendar) Calendar.getInstance(), (GregorianCalendar) Calendar.getInstance()).get(0).getValue());
+        assertNotSame(BigDecimal.valueOf(0),basicStockService.getQuote("AAPL", Calendar.getInstance(), Calendar.getInstance()).get(0).getValue());
     }
 
 }

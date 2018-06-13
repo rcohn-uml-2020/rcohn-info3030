@@ -5,8 +5,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Date;
 
 /**
  * @author rcohn
@@ -31,7 +31,7 @@ public class StockQuoteTest extends TestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
-        GregorianCalendar day = new GregorianCalendar();
+        Calendar day = new GregorianCalendar();
         stockQuote = new StockQuote("AAPL", day);
     }
 
