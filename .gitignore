@@ -23,3 +23,4 @@ target/classes/edu/rcohn/advancedjava/Test/Vehicle.class
 target/classes/edu/rcohn/advancedjava/Service/StockQuoteApp.class
 target/classes/edu/rcohn/advancedjava/Service/StockService$Interval.class
 target/classes/edu/rcohn/advancedjava/Service/BasicStockService$1.class
+target/classes/edu/rcohn/advancedjava/Service/Interval.class

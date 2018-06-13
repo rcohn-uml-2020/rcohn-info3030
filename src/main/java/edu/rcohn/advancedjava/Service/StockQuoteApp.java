@@ -17,7 +17,7 @@ public class StockQuoteApp {
 
         GregorianCalendar earlier = (GregorianCalendar) today.clone();
 
-        earlier.add(Calendar.DAY_OF_MONTH, -3);
+        earlier.add(Calendar.DAY_OF_MONTH, -8);
 
         StockQuote quoteToday = service.getQuote("AAPL");
 
@@ -26,6 +26,16 @@ public class StockQuoteApp {
         System.out.print(quoteToday);
 
         System.out.print("\n");
+
+        System.out.print(quotePeriod);
+
+        System.out.print("\n\n");
+
+        earlier = (GregorianCalendar) today.clone();
+
+        earlier.add(Calendar.MONTH, -8);
+
+        quotePeriod = service.getQuote("AAPL", earlier, today, Interval.QUARTER);
 
         System.out.print(quotePeriod);
 

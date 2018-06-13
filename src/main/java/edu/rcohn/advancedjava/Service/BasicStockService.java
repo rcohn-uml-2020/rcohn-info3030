@@ -22,8 +22,6 @@ public class BasicStockService implements StockService {
 
             List<StockQuote> quoteList = new ArrayList<>();
 
-            until.add(Calendar.DAY_OF_MONTH, 1);
-
             Calendar current;
             do {
             current = from;
@@ -34,7 +32,7 @@ public class BasicStockService implements StockService {
 
             current.add(Calendar.DAY_OF_MONTH, 1);
 
-        } while (!(current.equals(until)));
+        } while (!(current.compareTo(until) > 0));
 
         return quoteList;
     }
@@ -42,8 +40,6 @@ public class BasicStockService implements StockService {
     public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, Interval interval) {
 
         List<StockQuote> quoteList = new ArrayList<>();
-
-        until.add(Calendar.DAY_OF_MONTH, 1);
 
         Calendar current;
         do {
@@ -56,19 +52,28 @@ public class BasicStockService implements StockService {
             switch (interval) {
 
                 case DAY: current.add(Calendar.DAY_OF_MONTH, 1);
+                            break;
 
                 case WEEK: current.add(Calendar.DAY_OF_MONTH, 7);
+                            break;
 
                 case MONTH: current.add(Calendar.MONTH, 1);
+                            break;
 
                 case QUARTER: current.add(Calendar.MONTH, 3);
+                            break;
 
                 case YEAR: current.add(Calendar.YEAR, 1);
+                            break;
 
                 case DECADE: current.add(Calendar.YEAR, 10);
+                            break;
+
+                default: current.add(Calendar.DAY_OF_MONTH, 1);
+                            break;
             }
 
-        } while (current.compareTo(until) > 0);
+        } while (!(current.compareTo(until) > 0));
 
         return quoteList;
     }
