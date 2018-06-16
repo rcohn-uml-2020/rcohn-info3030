@@ -1,3 +1,3 @@
 # rcohn-info3030
 
-# branch for assignment two
+# updated as of 6/16/18
