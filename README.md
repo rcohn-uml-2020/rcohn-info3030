@@ -1,2 +1,2 @@
 # rcohn-info3030
-# includes new assignment
+# updated as of 6/16/18
