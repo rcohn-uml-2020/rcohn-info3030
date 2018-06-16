@@ -20,7 +20,7 @@ public class BasicStockService implements StockService {
 
     public List<StockQuote> getQuote(String symbol, GregorianCalendar from, GregorianCalendar until) {
 
-        List<StockQuote> quoteList = new ArrayList<>();
+        List<StockQuote> quoteList = new ArrayList<StockQuote>();
 
         until.add(Calendar.DAY_OF_MONTH, 1);
 
