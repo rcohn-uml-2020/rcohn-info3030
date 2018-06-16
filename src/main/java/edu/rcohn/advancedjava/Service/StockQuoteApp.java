@@ -1,0 +1,35 @@
+package edu.rcohn.advancedjava.Service;
+
+import edu.rcohn.advancedjava.Model.StockQuote;
+
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+public class StockQuoteApp {
+    public static void main(String[] args){
+        StockServiceFactory factory = new StockServiceFactory();
+
+        StockService service = factory.create();
+
+        GregorianCalendar today = new GregorianCalendar();
+
+        GregorianCalendar earlier = (GregorianCalendar) today.clone();
+
+        earlier.add(Calendar.DAY_OF_MONTH, -3);
+
+        StockQuote quoteToday = service.getQuote("AAPL");
+
+        List <StockQuote> quotePeriod = service.getQuote("AAPL", earlier, today);
+
+        System.out.print(quoteToday);
+
+        System.out.print("\n");
+
+        System.out.print(quotePeriod);
+
+        System.out.print("\n");
+    }
+
+}

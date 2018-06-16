@@ -1,8 +1,11 @@
-package edu.rcohn.advancedjava;
+package edu.rcohn.advancedjava.Service;
 
+import edu.rcohn.advancedjava.Service.StockServiceFactory;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import java.math.BigDecimal;
 
 /**
  * @author rcohn
@@ -20,14 +23,14 @@ public class StockServiceFactoryTest extends TestCase {
         super( stockServiceFactoryTest);
     }
 
-    StockService stockService;
+    private StockServiceFactory factory;
 
     /**
      * @throws Exception
      */
     public void setUp() throws Exception {
         super.setUp();
-        stockService = new StockServiceFactory.Builder().build();
+        factory = new StockServiceFactory();
     }
 
     /**
@@ -39,10 +42,10 @@ public class StockServiceFactoryTest extends TestCase {
     }
 
     public void testGetQuotePositive() {
-        assertEquals(71.5, stockService.getQuote("AAPL").getValue());
+        assertEquals(BigDecimal.valueOf(84.99), factory.create().getQuote("AAPL").getValue());
     }
 
     public void testGetQuoteNegative() {
-        assertNotSame(0.0, stockService.getQuote("AAPL").getValue());
+        assertNotSame(BigDecimal.valueOf(0),factory.create().getQuote("AAPL").getValue());
     }
 }
