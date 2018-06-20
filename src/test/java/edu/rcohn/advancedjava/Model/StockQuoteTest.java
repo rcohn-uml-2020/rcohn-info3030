@@ -1,16 +1,17 @@
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ */
+
 package edu.rcohn.advancedjava.Model;
 
 import org.junit.*;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.*;
 
-/**
- * @author rcohn
- * @version %I%, %G%
- */
+
 
 public class StockQuoteTest {
 

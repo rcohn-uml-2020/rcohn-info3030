@@ -1,3 +1,8 @@
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ */
+
 package edu.rcohn.advancedjava.Service;
 
 import org.junit.*;
@@ -5,10 +10,7 @@ import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 
-/**
- * @author rcohn
- * @version %I%, %G%
- */
+
 
 public class StockServiceFactoryTest {
 

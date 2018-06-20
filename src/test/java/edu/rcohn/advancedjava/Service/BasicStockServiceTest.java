@@ -1,3 +1,8 @@
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ */
+
 package edu.rcohn.advancedjava.Service;
 
 import org.junit.*;
@@ -6,10 +11,6 @@ import static org.junit.Assert.*;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
-/**
- * @author rcohn
- * @version %I%, %G%
- */
 
 public class BasicStockServiceTest {
 

@@ -1,13 +1,19 @@
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ */
+
 package edu.rcohn.advancedjava.Service;
 
 import edu.rcohn.advancedjava.Model.StockQuote;
+import java.util.*;
 
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
+/**
+ *  the application that uses all of the <code>StockQuote</code> services
+ */
 
 public class StockQuoteApp {
+
     public static void main(String[] args){
         StockServiceFactory factory = new StockServiceFactory();
 

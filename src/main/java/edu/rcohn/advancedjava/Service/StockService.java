@@ -1,3 +1,8 @@
+/**
+ * @author rcohn
+ * @version %I%, %G%
+ */
+
 package edu.rcohn.advancedjava.Service;
 
 import edu.rcohn.advancedjava.Model.StockQuote;
