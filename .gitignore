@@ -103,3 +103,17 @@ target/surefire-reports/edu.rcohn.advancedjava.Service.StockServiceFactoryTest.t
 target/surefire-reports/TEST-edu.rcohn.advancedjava.Model.StockQuoteTest.xml
 target/surefire-reports/TEST-edu.rcohn.advancedjava.Service.BasicStockServiceTest.xml
 target/surefire-reports/TEST-edu.rcohn.advancedjava.Service.StockServiceFactoryTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.VehicleTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.Test.VehicleTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.StockServiceFactoryTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.StockQuoteTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.BasicStockServiceTest.xml
+target/surefire-reports/TEST-edu.rcohn.advancedjava.AppTest.xml
+target/surefire-reports/edu.rcohn.advancedjava.VehicleTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.Test.VehicleTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.StockServiceFactoryTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.StockQuoteTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.BasicStockServiceTest.txt
+target/surefire-reports/edu.rcohn.advancedjava.AppTest.txt
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
