@@ -1,29 +1,18 @@
+*.class
 
-*.xml
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+.idea
 *.iml
-*.lst
-target/test-classes/edu/rcohn/advancedjava/Service/StockServiceFactoryTest.class
-target/test-classes/edu/rcohn/advancedjava/Service/BasicStockServiceTest.class
-target/test-classes/edu/rcohn/advancedjava/Model/StockQuoteTest.class
-target/surefire-reports/edu.rcohn.advancedjava.VehicleTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.StockServiceFactoryTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.StockQuoteTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.Service.StockServiceFactoryTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.Service.BasicStockServiceTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.Model.StockQuoteTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.BasicStockServiceTest.txt
-target/surefire-reports/edu.rcohn.advancedjava.AppTest.txt
-target/classes/edu/rcohn/advancedjava/Service/StockServiceFactory.class
-target/classes/edu/rcohn/advancedjava/Service/StockService.class
-target/classes/edu/rcohn/advancedjava/Service/BasicStockService.class
-target/classes/edu/rcohn/advancedjava/Model/StockQuote.class
-target/test-classes/edu/rcohn/advancedjava/Test/VehicleTest.class
-target/surefire-reports/edu.rcohn.advancedjava.Test.VehicleTest.txt
-target/classes/edu/rcohn/advancedjava/Test/Vehicle.class
-target/classes/edu/rcohn/advancedjava/Service/StockQuoteApp.class
-target/classes/edu/rcohn/advancedjava/Service/StockService$Interval.class
-target/classes/edu/rcohn/advancedjava/Service/BasicStockService$1.class
-target/classes/edu/rcohn/advancedjava/Service/Interval.class
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
 edu/rcohn/advancedjava/Model/package-frame.html
 edu/rcohn/advancedjava/Model/package-summary.html
 edu/rcohn/advancedjava/Model/package-tree.html

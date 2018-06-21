@@ -1,0 +1,5 @@
+edu\rcohn\advancedjava\Service\StockService.class
+edu\rcohn\advancedjava\Service\StockServiceFactory.class
+edu\rcohn\advancedjava\Service\BasicStockService.class
+edu\rcohn\advancedjava\Model\StockQuote.class
+edu\rcohn\advancedjava\Test\Vehicle.class
