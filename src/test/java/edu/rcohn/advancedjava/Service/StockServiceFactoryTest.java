@@ -1,50 +1,33 @@
-package edu.rcohn.advancedjava.Service;
-
-import edu.rcohn.advancedjava.Service.StockServiceFactory;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
-import java.math.BigDecimal;
-
 /**
  * @author rcohn
  * @version %I%, %G%
  */
 
-public class StockServiceFactoryTest extends TestCase {
-    /**
-     * create the test case
-     *
-     * @param stockServiceFactoryTest name of the test case
-     */
-    public StockServiceFactoryTest(String stockServiceFactoryTest)
-    {
-        super( stockServiceFactoryTest);
-    }
+package edu.rcohn.advancedjava.Service;
+
+import org.junit.*;
+import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+
+
+
+public class StockServiceFactoryTest {
 
     private StockServiceFactory factory;
 
-    /**
-     * @throws Exception
-     */
-    public void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
+
         factory = new StockServiceFactory();
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( StockServiceFactoryTest.class );
-    }
-
+    @Test
     public void testGetQuotePositive() {
         assertEquals(BigDecimal.valueOf(84.99), factory.create().getQuote("AAPL").getValue());
     }
 
+    @Test
     public void testGetQuoteNegative() {
         assertNotSame(BigDecimal.valueOf(0),factory.create().getQuote("AAPL").getValue());
     }
