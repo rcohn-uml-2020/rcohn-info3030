@@ -44,6 +44,7 @@ public class BasicStockService implements StockService {
      * @return an array of quotes that match these values
      */
 
+
     public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until) {
 
             List<StockQuote> quoteList = new ArrayList<StockQuote>();
