@@ -32,6 +32,8 @@ public class DatabaseStockServiceTest {
 		Calendar earlier = new GregorianCalendar();
         List<StockQuote> stockQuote = databaseStockService.getQuote(symbol, earlier, now);
         assertNotNull("Verify we can get a stock quote from the db", stockQuote);
-        assertEquals("Make sure the symbols match", symbol, stockQuote.get(0).getSymbol());
+        for (int i = 0; i < stockQuote.size();i++) {
+            assertEquals("Make sure the symbols match", symbol, stockQuote.get(i).getSymbol());
+        }
     }
 }
