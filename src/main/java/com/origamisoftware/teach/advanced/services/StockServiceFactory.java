@@ -23,14 +23,14 @@ public class StockServiceFactory {
      * @return get a <CODE>StockService</CODE> instance
      */
     public static StockService getInstance() {
-        return new StockService() {
+        return new DatabaseStockService() {
             @Override
-            public StockQuote getQuote(String symbol) throws StockServiceException {
+            public StockQuote getQuote(String symbol) {
                 return new StockQuote(new BigDecimal(100), Calendar.getInstance().getTime(), symbol);
             }
 
             @Override
-            public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until) throws StockServiceException {
+            public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until) {
                 List<StockQuote> stockQuotes = new ArrayList<>();
                 Date aDay = from.getTime();
                 while (until.after(aDay))  {

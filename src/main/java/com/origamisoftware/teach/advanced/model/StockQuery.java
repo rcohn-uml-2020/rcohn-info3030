@@ -23,7 +23,7 @@ public class StockQuery extends StockData{
      *
      * @param symbol the stock symbol
      * @param from   the start date as a string in the form of yyyy/MM/dd
-     * @param from   the end date as a string in the form of yyyy/MM/dd
+     * @param until   the end date as a string in the form of yyyy/MM/dd
      * @throws ParseException if the format of the date String is incorrect. If this happens
      *                        the only recourse is to try again with a correctly formatted String.
      */

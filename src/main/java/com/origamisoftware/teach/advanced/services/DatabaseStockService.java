@@ -33,7 +33,7 @@ public class DatabaseStockService implements StockService {
     @Override
     public StockQuote getQuote(String symbol) throws StockServiceException {
         // todo - this is a pretty lame implementation why?
-        List<StockQuote> stockQuotes = null;
+        List<StockQuote> stockQuotes;
         try {
             Connection connection = DatabaseUtils.getConnection();
             Statement statement = connection.createStatement();
@@ -64,12 +64,32 @@ public class DatabaseStockService implements StockService {
      * @param from   the date of the first stock quote
      * @param until  the date of the last stock quote
      * @return a list of StockQuote instances
-     * @throws   StockServiceException if using the service generates an exception.
+     * @throws StockServiceException if using the service generates an exception.
      * If this happens, trying the service may work, depending on the actual cause of the
      * error.
      */
     @Override
-    public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until) {
-        return null;
+    public List<StockQuote> getQuote (String symbol, Calendar from, Calendar until) throws StockServiceException {
+        List<StockQuote> stockQuotes;
+        try {
+            Connection connection = DatabaseUtils.getConnection();
+            Statement statement = connection.createStatement();
+            String queryString = "select * from quotes where datetime between 'from' and 'until'";
+            ResultSet resultSet = statement.executeQuery(queryString);
+            stockQuotes = new ArrayList<>(resultSet.getFetchSize());
+            while(resultSet.next()) {
+                String symbolValue = resultSet.getString("symbol");
+                Date time = resultSet.getDate("time");
+                BigDecimal price = resultSet.getBigDecimal("price");
+                stockQuotes.add(new StockQuote(price, time, symbolValue));
+            }
+
+        } catch (DatabaseConnectionException | SQLException exception) {
+            throw new StockServiceException(exception.getMessage(), exception);
+        }
+        if (stockQuotes.isEmpty()) {
+            throw new StockServiceException("There is no stock data for:" + symbol);
+        }
+        return stockQuotes;
     }
 }

@@ -29,7 +29,7 @@ public class StockQuote extends StockData {
     /**
      * @return Get the share price for the given date.
      */
-    public BigDecimal getPrice() {
+    BigDecimal getPrice() {
         return price;
     }
 

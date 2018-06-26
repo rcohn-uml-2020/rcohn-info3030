@@ -37,7 +37,7 @@ public class BasicStockQuoteApplication {
          *                        indicates success or normal termination.
          *                        non 0 numbers indicate abnormal termination.
          */
-        private ProgramTerminationStatusEnum(int statusCodeValue) {
+        ProgramTerminationStatusEnum(int statusCodeValue) {
             this.statusCode = statusCodeValue;
         }
 
@@ -57,7 +57,7 @@ public class BasicStockQuoteApplication {
      *                     <p/>
      *                     NOTE: this is a example of Dependency Injection in action.
      */
-    public BasicStockQuoteApplication(StockService stockService) {
+    BasicStockQuoteApplication(StockService stockService) {
         this.stockService = stockService;
     }
 
@@ -69,7 +69,7 @@ public class BasicStockQuoteApplication {
      * @throws StockServiceException If data about the stock can't be retrieved. This is a
      *                               fatal error.
      */
-    public String displayStockQuotes(StockQuery stockQuery) throws StockServiceException {
+    String displayStockQuotes(StockQuery stockQuery) throws StockServiceException {
         StringBuilder stringBuilder = new StringBuilder();
 
         List<StockQuote> stockQuotes =

@@ -13,7 +13,7 @@ public class StockServiceException extends Exception {
      * @param message the detail message. The detail message is saved for
      *                later retrieval by the {@link #getMessage()} method.
      */
-    public StockServiceException(String message) {
+    StockServiceException(String message) {
         super(message);
     }
 
@@ -31,7 +31,7 @@ public class StockServiceException extends Exception {
      *                unknown.)
      * @since 1.4
      */
-    public StockServiceException(String message, Throwable cause) {
+    StockServiceException(String message, Throwable cause) {
         super(message, cause);
     }
 }
