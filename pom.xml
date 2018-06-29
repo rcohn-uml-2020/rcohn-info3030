@@ -43,7 +43,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <version>8.0.11</version>
         </dependency>
 
         <dependency>
@@ -69,5 +69,6 @@
             <artifactId>ibatis-sqlmap</artifactId>
             <version>2.3.4.726</version>
         </dependency>
+		
     </dependencies>
 </project>

@@ -74,7 +74,7 @@ public class DatabaseStockService implements StockService {
         try {
             Connection connection = DatabaseUtils.getConnection();
             Statement statement = connection.createStatement();
-            String queryString = "select * from quotes where datetime between 'from' and 'until'";
+            String queryString = "select * from quotes where time between 'from' and 'until'";
             ResultSet resultSet = statement.executeQuery(queryString);
             stockQuotes = new ArrayList<>(resultSet.getFetchSize());
             while(resultSet.next()) {
