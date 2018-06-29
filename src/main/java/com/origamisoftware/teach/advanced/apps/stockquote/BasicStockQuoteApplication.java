@@ -76,6 +76,7 @@ public class BasicStockQuoteApplication {
                 stockService.getQuote(stockQuery.getSymbol(), stockQuery.getFrom(), stockQuery.getUntil());
 
         stringBuilder.append("Stock quotes for: " + stockQuery.getSymbol() + "\n");
+
         for (StockQuote stockQuote : stockQuotes) {
             stringBuilder.append(stockQuote.toString());
         }

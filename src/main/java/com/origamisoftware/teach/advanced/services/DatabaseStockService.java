@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -74,7 +75,10 @@ public class DatabaseStockService implements StockService {
         try {
             Connection connection = DatabaseUtils.getConnection();
             Statement statement = connection.createStatement();
-            String queryString = "select * from quotes where time between 'from' and 'until'";
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String fromDate = formatter.format(from.getTime());
+            String untilDate = formatter.format(until.getTime());
+            String queryString = "select * from quotes where (time between '" + fromDate + "' and '" + untilDate + "') and (symbol = '" + symbol + "')";
             ResultSet resultSet = statement.executeQuery(queryString);
             stockQuotes = new ArrayList<>(resultSet.getFetchSize());
             while(resultSet.next()) {

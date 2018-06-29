@@ -32,9 +32,12 @@ public class StockQuery extends StockData{
         this.symbol = symbol;
         this.from = Calendar.getInstance();
         this.until = Calendar.getInstance();
-        System.out.println(simpleDateFormat);
+        System.out.println(symbol +": "+ from + " " + until);
         this.from.setTime(simpleDateFormat.parse(from));
         this.until.setTime(simpleDateFormat.parse(until));
+
+        System.out.println(this.from.getTime());
+        System.out.println(this.until.getTime());
     }
 
     /**
