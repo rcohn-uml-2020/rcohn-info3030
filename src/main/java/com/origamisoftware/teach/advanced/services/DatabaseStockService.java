@@ -1,6 +1,7 @@
 package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockQuote;
+import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.util.DatabaseConnectionException;
 import com.origamisoftware.teach.advanced.util.DatabaseUtils;
 
@@ -70,14 +71,14 @@ public class DatabaseStockService implements StockService {
      * error.
      */
     @Override
-    public List<StockQuote> getQuote (String symbol, Calendar from, Calendar until) throws StockServiceException {
+    public List<StockQuote> getQuote (String symbol, String from, String until) throws StockServiceException {
         List<StockQuote> stockQuotes;
         try {
             Connection connection = DatabaseUtils.getConnection();
             Statement statement = connection.createStatement();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            String fromDate = formatter.format(from.getTime());
-            String untilDate = formatter.format(until.getTime());
+            StockQuery stockQuery = new StockQuery(symbol, from, until);
+            String fromDate = stockQuery.getFrom();
+            String untilDate = stockQuery.getUntil();
             String queryString = "select * from quotes where (time between '" + fromDate + "' and '" + untilDate + "') and (symbol = '" + symbol + "')";
             ResultSet resultSet = statement.executeQuery(queryString);
             stockQuotes = new ArrayList<>(resultSet.getFetchSize());
