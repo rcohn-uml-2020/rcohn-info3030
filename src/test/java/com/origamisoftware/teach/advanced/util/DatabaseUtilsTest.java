@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class DatabaseUtilsTest {
     
     @InjectMocks
-    private DBConnection dbConnection;
+    private DatabaseUtils dbUtils;
     
     @Mock
     private Connection mockConnection;
@@ -33,19 +33,16 @@ public class DatabaseUtilsTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
-    
 
     @Test
-    public void testGetConnection() throws Exception{
-        connection = DatabaseUtils.getConnection();
-        assertNotNull("verify that we can get a connection ok",connection);
+    public void testMockGetConnection() throws Exception{
+        assertNotNull("verify that we can get a connection ok", mockConnection);
     }
 
     @Test
-    public void testGetConnectionWorks() throws Exception{
-        connection = DatabaseUtils.getConnection();
-        statement = connection.createStatement();
-        boolean execute = statement.execute("select * from quotes");
+    public void testMockGetConnectionWorks() throws Exception{
+        Mockito.when(mockConnection.createStatement()).thenReturn(mockStatement);
+        Mockito.when(mockConnection.createStatement().executeUpdate(Mockito.any())).thenReturn(1);
         assertTrue("verify that we can execute a statement",execute);
     }
 }
