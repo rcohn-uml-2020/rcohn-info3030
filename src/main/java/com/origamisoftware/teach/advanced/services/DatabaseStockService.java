@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -71,14 +72,14 @@ public class DatabaseStockService implements StockService {
      * error.
      */
     @Override
-    public List<StockQuote> getQuote (String symbol, String from, String until) throws StockServiceException {
+    public List<StockQuote> getQuote (String symbol, Calendar from, Calendar until) throws StockServiceException {
         List<StockQuote> stockQuotes;
         try {
             Connection connection = DatabaseUtils.getConnection();
             Statement statement = connection.createStatement();
-            StockQuery stockQuery = new StockQuery(symbol, from, until);
-            String fromDate = stockQuery.getFrom();
-            String untilDate = stockQuery.getUntil();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String fromDate = simpleDateFormat.format(from.getTime());
+            String untilDate = simpleDateFormat.format(until.getTime());
             String queryString = "select * from quotes where (time between '" + fromDate + "' and '" + untilDate + "') and (symbol = '" + symbol + "')";
             ResultSet resultSet = statement.executeQuery(queryString);
             stockQuotes = new ArrayList<>(resultSet.getFetchSize());

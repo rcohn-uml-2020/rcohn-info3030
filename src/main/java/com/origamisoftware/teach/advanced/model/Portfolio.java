@@ -1,5 +1,8 @@
 package com.origamisoftware.teach.advanced.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A container class that contains portfolio data.
  */
@@ -13,24 +16,23 @@ public class Portfolio {
      * Create a new instance of a Portfolio.
      *
      * @param person the person's name
-     * @param symbols the person's watched stock symbols
      */
-    public Portfolio (String name) {
-        this.name = name;
-        this.symbols = new ArrayList<String>;
+    public Portfolio (String person) {
+        this.person = person;
+        this.symbols = new ArrayList<String>();
     }
 
     /**
      * @return Get the name of the person.
      */
     String getName() {
-        return name;
+        return person;
     }
 
     /**
      * @return Get the symbols.
      */
-    String getSymbols() {
+    List<String> getSymbols() {
         return symbols;
     }
 
@@ -39,13 +41,13 @@ public class Portfolio {
      */
    
     @Override
-    Stringbuilder symbols = new Stringbuilder;
-    for (symbol:symbols){
-    symbols += symbol + " ";
-    }
     public String toString() {
+        StringBuilder symbolsBuilder = new StringBuilder();
+        for (String symbol:symbols)
+            symbolsBuilder.append(symbol).append(", ");
+
         return "Portfolio{" +
-                "name=" + name +
+                "person=" + person +
                 ", symbols=" + symbols +
                 '}';
     }

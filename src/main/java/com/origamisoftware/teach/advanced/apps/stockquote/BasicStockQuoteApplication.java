@@ -75,10 +75,10 @@ public class BasicStockQuoteApplication {
         List<StockQuote> stockQuotes =
                 stockService.getQuote(stockQuery.getSymbol(), stockQuery.getFrom(), stockQuery.getUntil());
 
-        stringBuilder.append("Stock quotes for: " + stockQuery.getSymbol() + "\n");
+        stringBuilder.append("Stock quotes for: ").append(stockQuery.getSymbol()).append("\n");
 
         for (StockQuote stockQuote : stockQuotes) {
-            stringBuilder.append(stockQuote.toString() + "\n");
+            stringBuilder.append(stockQuote.toString()).append("\n");
         }
 
         return stringBuilder.toString();
@@ -129,7 +129,7 @@ public class BasicStockQuoteApplication {
             StockService stockService = StockServiceFactory.getInstance();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
-            System.out.printf(basicStockQuoteApplication.displayStockQuotes(stockQuery));
+            System.out.print(basicStockQuoteApplication.displayStockQuotes(stockQuery));
 
         } catch (ParseException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
