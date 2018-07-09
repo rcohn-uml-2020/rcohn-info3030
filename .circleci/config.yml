@@ -16,6 +16,7 @@ jobs:
       
       - image: circleci/mysql:8.0.11-ram
         environment:
+            - MYSQL_HOST: 127.0.0.1
             - MYSQL_ROOT_PASSWORD: some_pass
             - MYSQL_DATABASE: stocks
             - MYSQL_USER: monty
