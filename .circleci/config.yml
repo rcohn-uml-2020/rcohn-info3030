@@ -5,10 +5,6 @@
 version: 2
 jobs:
   build:
-  
-    steps:
-
-  
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -36,7 +32,7 @@ jobs:
 
       - checkout      
       
-      - run: mysql -u monty --password=some_pass stocks < "~/repo/rcohn-info3030/src/main/sql/stocks_db_initialization.sql"
+      - run: mysql -u monty --password=some_pass stocks < "repo/rcohn-info3030/src/main/sql/stocks_db_initialization.sql"
 
       # Download and cache dependencies
       - restore_cache:
