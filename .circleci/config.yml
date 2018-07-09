@@ -16,6 +16,7 @@ jobs:
       # - image: circleci/postgres:9.4
       - image: circleci/mysql:8.0.11-ram
         environment:
+          - MYSQL_ROOT_PASSWORD: some_pass
           - MYSQL_DATABASE: stocks
           - MYSQL_USER: monty
           - MYSQL_PASSWORD: some_pass
@@ -29,7 +30,9 @@ jobs:
     steps:
       - checkout      
       - run: sudo apt install -y mysql-client
-      # - run: mysql -u monty --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
+      - run: mysql -u root --password=some_pass -e "show databases"
+      
+      # - run: mysql -u root --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
 
       # Download and cache dependencies
       - restore_cache:
