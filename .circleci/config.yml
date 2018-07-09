@@ -5,6 +5,10 @@
 version: 2
 jobs:
   build:
+  
+    steps:
+          - run: sudo apt install -y mysql-client
+  
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:8-jdk
@@ -29,8 +33,6 @@ jobs:
     
     steps:
       - checkout
-      
-      - run: sudo apt install -y mysql-client
 
       # Download and cache dependencies
       - restore_cache:
