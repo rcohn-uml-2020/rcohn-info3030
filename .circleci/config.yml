@@ -33,6 +33,7 @@ jobs:
     
     steps:
       - run: sudo apt install -y mysql-client
+      - run: mysql -u monty -p some_pass stocks < "rcohn-info3030/src/main/sql/stocks_db_initialization.sql"
     
       - checkout
 
