@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout      
       - run: sudo apt install -y mysql-client
-      - run: bin/mysqladmin version
+      - run: mysql -u root -p some_pass version
       # - run: mysql -u monty --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
 
       # Download and cache dependencies
