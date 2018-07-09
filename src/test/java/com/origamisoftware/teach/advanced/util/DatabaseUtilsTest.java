@@ -23,7 +23,7 @@ public class DatabaseUtilsTest {
     public void testGetConnectionWorks() throws Exception{
         Connection connection = DatabaseUtils.getConnection();
         Statement statement = connection.createStatement();
-        boolean execute = statement.execute("select * from quotes");
+        boolean execute = statement.execute("show databases");
         assertTrue("verify that we can execute a statement",execute);
     }
 }
