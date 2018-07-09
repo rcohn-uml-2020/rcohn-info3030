@@ -7,7 +7,7 @@ jobs:
   build:
   
     steps:
-          - run: sudo apt install -y mysql-client
+
   
     docker:
       # specify the version you desire here
@@ -32,6 +32,8 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
     
     steps:
+      - run: sudo apt install -y mysql-client
+    
       - checkout
 
       # Download and cache dependencies
