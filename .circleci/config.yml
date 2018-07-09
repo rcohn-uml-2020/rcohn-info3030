@@ -33,7 +33,7 @@ jobs:
       - checkout      
       
       - run: ls
-      # - run: mysql -u monty --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
+      - run: mysql -u monty --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
 
       # Download and cache dependencies
       - restore_cache:
