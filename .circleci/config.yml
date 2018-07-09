@@ -30,9 +30,7 @@ jobs:
     steps:
       - checkout      
       - run: sudo apt install -y mysql-client
-      - run: mysql -h 127.0.0.1 -u root
-      - run: mysql -u root --password=some_pass -e "show databases"
-      
+
       # - run: mysql -u root --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
 
       # Download and cache dependencies
