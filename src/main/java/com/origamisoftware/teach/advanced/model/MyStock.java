@@ -8,11 +8,14 @@ import javax.persistence.*;
 /**
  * A container class that contains stock data.
  */
+
+@Entity
+@Table(name="MyStock")
 public class MyStock {
 
-    private int id;
-    private int person_id;
-    private int symbol_id;
+    @Id @Column(name="id") private int id;
+    @Column(name="person_id") private int person_id;
+    @Column(name="symbol_id") private int symbol_id;
 
 
     /**
