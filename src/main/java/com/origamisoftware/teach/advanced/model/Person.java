@@ -1,12 +1,18 @@
 package com.origamisoftware.teach.advanced.model;
 
+import javax.persistence.*;
+
 /**
  * A container class that contains person data.
  */
+
+@Entity
+@Table(name="Person")
 public class Person {
 
-    private String first_name;
-    private String last_name;
+    @Id @Column(name="id") private int id;
+    @Column(name="first_name") private String first_name;
+    @Column(name="last_name") private String last_name;
 
 
     /**
