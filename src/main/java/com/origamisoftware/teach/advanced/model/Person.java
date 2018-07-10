@@ -21,7 +21,8 @@ public class Person {
      * @param first_name the person's first name
      * @param last_name the person's last name
      */
-    public Person(String first_name, String last_name) {
+    public Person(int id, String first_name, String last_name) {
+        this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
     }
