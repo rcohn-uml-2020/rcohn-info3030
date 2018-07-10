@@ -10,12 +10,12 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="MyStock")
+@Table(name="portfolio")
 public class MyStock {
 
     @Id @Column(name="id") private int id;
     @Column(name="person_id") private int person_id;
-    @Column(name="symbol_id") private int symbol_id;
+    @Column(name="quotes_id") private int quotes_id;
 
 
     /**
@@ -25,10 +25,10 @@ public class MyStock {
      * @param person_id the person's name
      * @param symbol_id the symbol of the stock
      */
-    public MyStock (int id, int person_id, int symbol_id) {
+    public MyStock (int id, int person_id, int quotes_id) {
         this.id = id;
         this.person_id = person_id;
-        this.symbol_id = symbol_id;
+        this.quotes_id = quotes_id;
     }
 
     /**
