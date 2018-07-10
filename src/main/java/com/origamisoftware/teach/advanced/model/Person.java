@@ -1,6 +1,10 @@
 package com.origamisoftware.teach.advanced.model;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * A container class that contains person data.
@@ -10,7 +14,8 @@ import javax.persistence.*;
 @Table(name="Person")
 public class Person {
 
-    @Id @Column(name="id") private int id;
+    @Id
+    @Column(name="id") private int id;
     @Column(name="first_name") private String first_name;
     @Column(name="last_name") private String last_name;
 

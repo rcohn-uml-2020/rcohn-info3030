@@ -1,9 +1,9 @@
 package com.origamisoftware.teach.advanced.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * A container class that contains stock data.
@@ -21,9 +21,9 @@ public class MyStock {
     /**
      * Create a new instance of a stock.
      *
-     * @param id
+     * @param id primary data id
      * @param person_id the person's name
-     * @param symbol_id the symbol of the stock
+     * @param quotes_id the symbol of the stock used in the quotes database
      */
     public MyStock (int id, int person_id, int quotes_id) {
         this.id = id;
@@ -34,15 +34,15 @@ public class MyStock {
     /**
      * @return Get the name of the person.
      */
-    String getName() {
-        return person;
+    int getPerson_id() {
+        return person_id;
     }
 
     /**
      * @return Get the symbols.
      */
-    List<String> getSymbols() {
-        return symbols;
+    int getQuotes_id() {
+        return quotes_id;
     }
 
     /**
@@ -51,13 +51,11 @@ public class MyStock {
    
     @Override
     public String toString() {
-        StringBuilder symbolsBuilder = new StringBuilder();
-        for (String symbol:symbols)
-            symbolsBuilder.append(symbol).append(", ");
 
-        return "Portfolio{" +
-                "person=" + person +
-                ", symbols=" + symbols +
+        return "MyStock{" +
+                "id=" + id +
+                "person_id=" + person_id +
+                ", symbols=" + quotes_id +
                 '}';
     }
 }
