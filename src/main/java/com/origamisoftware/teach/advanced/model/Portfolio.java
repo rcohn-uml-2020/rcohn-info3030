@@ -3,23 +3,29 @@ package com.origamisoftware.teach.advanced.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A container class that contains portfolio data.
- */
-public class Portfolio {
+import javax.persistence.*;
 
-    private String person;
-    private List<String> symbols;
+/**
+ * A container class that contains stock data.
+ */
+public class MyStock {
+
+    private int id;
+    private int person_id;
+    private int symbol_id;
 
 
     /**
-     * Create a new instance of a Portfolio.
+     * Create a new instance of a stock.
      *
-     * @param person the person's name
+     * @param id
+     * @param person_id the person's name
+     * @param symbol_id the symbol of the stock
      */
-    public Portfolio (String person) {
-        this.person = person;
-        this.symbols = new ArrayList<String>();
+    public MyStock (int id, int person_id, int symbol_id) {
+        this.id = id;
+        this.person_id = person_id;
+        this.symbol_id = symbol_id;
     }
 
     /**
