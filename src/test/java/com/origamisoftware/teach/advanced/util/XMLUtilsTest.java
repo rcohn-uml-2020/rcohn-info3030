@@ -1,30 +1,9 @@
 package com.origamisoftware.teach.advanced.util;
 
-import com.origamisoftware.teach.advanced.xml.Family;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 /**
  * Unit tests for XML utils.
  */
 public class XMLUtilsTest {
-
-    private static String FATHERS_NAME = "Fred";
-    private static String MOTHERS__NAME = "Sally";
-
-    private static String xmlInstance = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"+
-            "<family>\n" +
-            "    <father age=\"40\">" + FATHERS_NAME + "</father>\n" +
-            "    <mother age=\"40\">" + MOTHERS__NAME + "</mother>\n" +
-            "    <kids>\n" +
-            "        <child age=\"11\" grade=\"5\">Peter</child>\n" +
-            "        <child age=\"15\" grade=\"9\">Bill</child>\n" +
-            "        <child age=\"09\" grade=\"3\">Sally</child>\n" +
-            "    </kids>\n" +
-            "</family>";
-
 
     private static String xmlStocks = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
             "<stocks>\n" +
@@ -78,32 +57,4 @@ public class XMLUtilsTest {
             "    <stock symbol=\"NQ\" price=\"110.77\" time=\"2015-02-10 00:00:01\"/>\n" +
             "    <stock symbol=\"OTOW\" price=\"60.41\" time=\"2015-02-10 00:00:01\"/>\n" +
             "</stocks>";
-
-    @Test
-    public void testUnmarshall() throws Exception {
-        Family family = XMLUtils.unmarshall(xmlInstance, Family.class);
-        validateFamily(family);
-    }
-
-    @Test
-    public void testUnmarshallWithSchemaValidation()throws Exception {
-        Family family = XMLUtils.unmarshall(xmlInstance, Family.class, "/xml/family.xsd");
-        validateFamily(family);
-    }
-
-    @Test
-    public void testMarshall() throws Exception {
-        Family family = XMLUtils.unmarshall(xmlInstance, Family.class, "/xml/family.xsd");
-        String xml = XMLUtils.marshall(family);
-        // input xml should be the same as output xml
-        assertEquals("XML out is correct", xml.trim() ,xmlInstance.trim());
-    }
-
-    private void validateFamily(Family family) {
-        assertTrue("Father name is correct", family.getFather().getContent().equals(FATHERS_NAME));
-        assertTrue("Mother name is correct", family.getMother().getContent().equals(MOTHERS__NAME));
-        assertTrue("There are three kids", family.getKids().getChild().size() == 3);
-    }
-
-
 }
