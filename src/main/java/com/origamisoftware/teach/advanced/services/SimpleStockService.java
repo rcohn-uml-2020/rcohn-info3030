@@ -3,14 +3,16 @@ package com.origamisoftware.teach.advanced.services;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.util.Interval;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
- * This API describes how to get stock data from an external resource.
+ * An implementation of the StockService that returns hard coded data.
  */
-public interface StockService {
-
+ class SimpleStockService implements StockService {
 
     /**
      * Return the current price for a share of stock  for the given symbol
@@ -22,7 +24,11 @@ public interface StockService {
      *                               If this happens, trying the service may work, depending on the actual cause of the
      *                               error.
      */
-    StockQuote getQuote(String symbol) throws StockServiceException;
+    @Override
+    public StockQuote getQuote(String symbol) {
+        // a dead simple implementation.
+        return new StockQuote(new BigDecimal(100), Calendar.getInstance().getTime(), symbol);
+    }
 
     /**
      * Get a historical list of stock quotes for the provide symbol
@@ -30,13 +36,21 @@ public interface StockService {
      * @param symbol the stock symbol to search for
      * @param from   the date of the first stock quote
      * @param until  the date of the last stock quote
-     * @param interval the number of stockquotes to get per a 24 hour period.
      * @return a list of StockQuote instances
      * @throws   StockServiceException if using the service generates an exception.
      * If this happens, trying the service may work, depending on the actual cause of the
      * error.
      */
-    List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, Interval interval) throws StockServiceException;
-
+    @Override
+    public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, Interval interval) {
+        // a dead simple implementation.
+        List<StockQuote> stockQuotes = new ArrayList<>();
+        Date aDay = from.getTime();
+        while (until.after(aDay)) {
+            stockQuotes.add(new StockQuote(new BigDecimal(100), aDay, symbol));
+            from.add(Calendar.DAY_OF_YEAR, 1);
+            aDay = from.getTime();
+        }
+        return stockQuotes;
+    }
 }
-
