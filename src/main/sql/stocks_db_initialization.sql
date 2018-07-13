@@ -1,7 +1,11 @@
 /** create the stocks database */
 
-DROP TABLE IF EXISTS quotes CASCADE;
-CREATE TABLE quotes(
+DROP DATABASE IF EXISTS stocks;
+
+CREATE DATABASE stocks;
+
+DROP TABLE IF EXISTS quote CASCADE;
+CREATE TABLE quote(
    id INT NOT NULL AUTO_INCREMENT,
    symbol VARCHAR(4) NOT NULL,
    time DATETIME NOT NULL,

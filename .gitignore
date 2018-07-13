@@ -117,3 +117,15 @@ target/surefire-reports/edu.rcohn.advancedjava.BasicStockServiceTest.txt
 target/surefire-reports/edu.rcohn.advancedjava.AppTest.txt
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/surefire-reports/com.origamisoftware.teach.advanced.model.database.PersonDAOTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.model.database.PersonStocksDAOTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.model.database.QuoteDAOTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.model.database.StockSymbolDAOTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.services.DatabaseUserServiceTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.services.ServiceFactoryTest.txt
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.database.PersonDAOTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.database.PersonStocksDAOTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.database.QuoteDAOTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.database.StockSymbolDAOTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.DatabaseUserServiceTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.ServiceFactoryTest.xml
