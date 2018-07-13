@@ -20,9 +20,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Unit tests for the DatabaseStockService
+ * Unit tests for the LiveStockService
  */
-public class DatabaseStockServiceTest extends DatabaseServiceTest {
+public class LiveStockServiceTest extends DatabaseServiceTest {
 
     private StockService databaseStockService;
 

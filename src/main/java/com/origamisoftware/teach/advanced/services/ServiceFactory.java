@@ -15,7 +15,7 @@ public class ServiceFactory {
      * @return get a <CODE>StockService</CODE> instance
      */
     public static StockService getStockService() {
-        return new DatabaseStockService();
+        return new LiveStockService();
     }
 
     /**

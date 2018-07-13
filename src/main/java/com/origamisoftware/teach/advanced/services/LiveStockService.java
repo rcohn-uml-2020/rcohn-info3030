@@ -21,7 +21,7 @@ import java.util.List;
  * An implementation of the StockService interface that gets
  * stock data from a database.
  */
-class DatabaseStockService implements StockService {
+class LiveStockService implements StockService {
 
     /**
      * Return the current price for a share of stock  for the given symbol
