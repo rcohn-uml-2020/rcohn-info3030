@@ -1,57 +1,17 @@
 package com.origamisoftware.teach.advanced.util;
 
-import com.ibatis.common.jdbc.ScriptRunner;
-import com.origamisoftware.teach.advanced.model.database.DatabasesAccessObject;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-
-import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 /**
  * A class that contains database related utility methods.
  */
-public class DatabaseUtils {
-
-    public static final String initializationFile = "./src/main/sql/stocks_db_initialization.sql";
-
-    private static SessionFactory sessionFactory;
-    private static Configuration configuration;
-    private static String HIBERNATE_CONFIGURATION_FILE = "hibernate.cfg.xml";
-    private static String JDBC_DRIVER_CLASS_PROPERTY_KEY = "connection.driver_class";
-    private static String DATABASE_USER_NAME = "hibernate.connection.username";
-    private static String DATABASE_USER_PASSWORD = "hibernate.connection.password";
-    private static String DATABASE_URL = "connection.url";
-
-
-    /**
-     * Gets the value of a key from config file
-     *
-     * @param property
-     * @return
-     */
-    private static String getPropFromConfig(String property) {
-        String s = null;
-        Configuration cfg = new Configuration();
-        cfg.configure(HIBERNATE_CONFIGURATION_FILE); //hibernate config xml file name
-        return cfg.getProperties().get(property).toString();
-    }
+public class LiveUtils {
 
     /**
      * @return a connection to the DBMS which is used for DBMS
-     * @throws DatabaseConnectionException if a connection cannot be made.
+     * @throws LiveConnectionException if a connection cannot be made.
      */
-    public static Connection getConnection() throws DatabaseConnectionException {
+    public static Connection getConnection() throws LiveConnectionException {
         Connection connection = null;
         try {
             Class.forName(getPropFromConfig(JDBC_DRIVER_CLASS_PROPERTY_KEY));
@@ -61,7 +21,7 @@ public class DatabaseUtils {
             // an example of throwing an exception appropriate to the abstraction.
         } catch (ClassNotFoundException | SQLException e) {
             String message = e.getMessage();
-            throw new DatabaseConnectionException("Could not connection to database." + message, e);
+            throw new LiveConnectionException("Could not connection to database." + message, e);
         }
         return connection;
     }
@@ -70,9 +30,9 @@ public class DatabaseUtils {
      * A utility method that runs a db initialize script.
      *
      * @param initializationScript full path to the script to run to create the schema
-     * @throws DatabaseInitializationException
+     * @throws LiveInitializationException
      */
-    public static void initializeDatabase(String initializationScript) throws DatabaseInitializationException {
+    public static void initializeDatabase(String initializationScript) throws LiveInitializationException {
 
         Connection connection = null;
         final StringBuilder errorLog = new StringBuilder();
@@ -96,13 +56,13 @@ public class DatabaseUtils {
             connection.commit();
             connection.close();
 
-        } catch (DatabaseConnectionException | SQLException | IOException e) {
-            throw new DatabaseInitializationException("Could not initialize db because of:"
+        } catch (LiveConnectionException | SQLException | IOException e) {
+            throw new LiveInitializationException("Could not initialize db because of:"
                     + e.getMessage(), e);
         }
         // improvement - previous versions would not single errors in the SQL itself.
         if (errorLog.length() != 0) {
-            throw new DatabaseInitializationException("SQL init script contained errors:" + errorLog.toString());
+            throw new LiveInitializationException("SQL init script contained errors:" + errorLog.toString());
 
 
         }
@@ -113,17 +73,17 @@ public class DatabaseUtils {
      *
      * @param someSQL the code to execute
      * @return true if the operation succeeded.
-     * @throws DatabaseException if accessing and executing the sql failed in an unexpected way.
+     * @throws LiveException if accessing and executing the sql failed in an unexpected way.
      */
-    public static boolean executeSQL(String someSQL) throws DatabaseException {
+    public static boolean executeSQL(String someSQL) throws LiveException {
         Connection connection = null;
         boolean returnValue = false;
         try {
-            connection = DatabaseUtils.getConnection();
+            connection = LiveUtils.getConnection();
             Statement statement = connection.createStatement();
             returnValue = statement.execute(someSQL);
-        } catch (DatabaseConnectionException | SQLException e) {
-            throw new DatabaseException(e.getMessage(), e);
+        } catch (LiveConnectionException | SQLException e) {
+            throw new LiveException(e.getMessage(), e);
         }
         return returnValue;
     }
@@ -135,7 +95,7 @@ public class DatabaseUtils {
     public static SessionFactory getSessionFactory() {
 
         // singleton pattern
-        synchronized (DatabaseUtils.class) {
+        synchronized (LiveUtils.class) {
             if (sessionFactory == null) {
 
                 Configuration configuration = getConfiguration();
@@ -149,22 +109,6 @@ public class DatabaseUtils {
             }
         }
         return sessionFactory;
-    }
-
-    /**
-     * Create a new or return an existing database configuration object.
-     *
-     * @return a Hibernate Configuration instance.
-     */
-    private static Configuration getConfiguration() {
-
-        synchronized (DatabaseUtils.class) {
-            if (configuration == null) {
-                configuration = new Configuration();
-                configuration.configure(HIBERNATE_CONFIGURATION_FILE);
-            }
-        }
-        return configuration;
     }
 
     /**

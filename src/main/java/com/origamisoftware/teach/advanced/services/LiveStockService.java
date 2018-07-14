@@ -3,7 +3,7 @@ package com.origamisoftware.teach.advanced.services;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.model.database.QuoteDAO;
 import com.origamisoftware.teach.advanced.model.database.StockSymbolDAO;
-import com.origamisoftware.teach.advanced.util.DatabaseUtils;
+import com.origamisoftware.teach.advanced.util.LiveUtils;
 import com.origamisoftware.teach.advanced.util.Interval;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -37,8 +37,8 @@ class LiveStockService implements StockService {
     public StockQuote getQuote(String symbol) throws StockServiceException {
         StockQuote stockQuote;
 
-        StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
-        List<QuoteDAO> quotes = DatabaseUtils.findResultsBy("stockSymbolBySymbolId", stockSymbolDAO, QuoteDAO.class, true);
+        StockSymbolDAO stockSymbolDAO = LiveUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
+        List<QuoteDAO> quotes = LiveUtils.findResultsBy("stockSymbolBySymbolId", stockSymbolDAO, QuoteDAO.class, true);
 
         if (quotes.isEmpty()) {
             throw new StockServiceException("Could not find any stock quotes for: " + symbol);
@@ -75,8 +75,8 @@ class LiveStockService implements StockService {
         Transaction transaction = null;
 
         try {
-            StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
-            session = DatabaseUtils.getSessionFactory().openSession();
+            StockSymbolDAO stockSymbolDAO = LiveUtils.findUniqueResultBy("symbol", symbol, StockSymbolDAO.class, true);
+            session = LiveUtils.getSessionFactory().openSession();
             transaction = session.beginTransaction();
             Timestamp fromTimeStamp = new Timestamp(from.getTimeInMillis());
             Timestamp untilTimestamp = new Timestamp(until.getTimeInMillis());
@@ -173,7 +173,7 @@ class LiveStockService implements StockService {
          previousStockQuote = currentStockQuote;
          }
 
-         } catch (DatabaseConnectionException | SQLException exception) {
+         } catch (LiveConnectionException | SQLException exception) {
          throw new StockServiceException(exception.getMessage(), exception);
          }
          if (stockQuotes.isEmpty()) {

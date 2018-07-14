@@ -1,9 +1,20 @@
 package com.origamisoftware.teach.advanced.util;
 
 /**
- * A higher level exception that tells the client accessing the database failed. .
+ * This class is used to signal a problem initializing to a database.
  */
-public class DatabaseException extends Exception {
+public class LiveInitializationException extends Exception {
+    /**
+     * Constructs a new exception with the specified detail message.  The
+     * cause is not initialized, and may subsequently be initialized by
+     * a call to {@link #initCause}.
+     *
+     * @param message the detail message. The detail message is saved for
+     *                later retrieval by the {@link #getMessage()} method.
+     */
+    public LiveInitializationException(String message) {
+        super(message);
+    }
 
     /**
      * Constructs a new exception with the specified detail message and
@@ -19,7 +30,7 @@ public class DatabaseException extends Exception {
      *         unknown.)
      * @since  1.4
      */
-    public DatabaseException(String message, Throwable cause) {
+    public LiveInitializationException(String message, Throwable cause) {
         super(message, cause);
     }
 }

@@ -1,9 +1,9 @@
 package com.origamisoftware.teach.advanced.util;
 
 /**
- * This class is used to signal a problem connecting to a database.
+ * A higher level exception that tells the client accessing the database failed. .
  */
-public class DatabaseConnectionException extends Exception {
+public class LiveException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message and
@@ -19,7 +19,7 @@ public class DatabaseConnectionException extends Exception {
      *         unknown.)
      * @since  1.4
      */
-    public DatabaseConnectionException(String message, Throwable cause) {
+    public LiveException(String message, Throwable cause) {
         super(message, cause);
     }
 }

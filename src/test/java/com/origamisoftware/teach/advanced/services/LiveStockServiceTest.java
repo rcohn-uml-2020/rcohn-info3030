@@ -2,7 +2,7 @@ package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockData;
 import com.origamisoftware.teach.advanced.model.StockQuote;
-import com.origamisoftware.teach.advanced.util.DatabaseInitializationException;
+import com.origamisoftware.teach.advanced.util.LiveInitializationException;
 import com.origamisoftware.teach.advanced.util.Interval;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class LiveStockServiceTest extends DatabaseServiceTest {
     private StockService databaseStockService;
 
     @Before
-    public void setUp() throws DatabaseInitializationException {
+    public void setUp() throws LiveInitializationException {
         super.setUp();
         databaseStockService = ServiceFactory.getStockService();
     }

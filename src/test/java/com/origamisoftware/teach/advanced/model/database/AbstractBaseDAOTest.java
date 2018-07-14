@@ -1,7 +1,7 @@
 package com.origamisoftware.teach.advanced.model.database;
 
-import com.origamisoftware.teach.advanced.util.DatabaseInitializationException;
-import com.origamisoftware.teach.advanced.util.DatabaseUtils;
+import com.origamisoftware.teach.advanced.util.LiveInitializationException;
+import com.origamisoftware.teach.advanced.util.LiveUtils;
 import org.junit.After;
 import org.junit.Before;
 
@@ -14,12 +14,12 @@ import org.junit.Before;
 class AbstractBaseDAOTest {
 
     @Before
-    public void setUp() throws DatabaseInitializationException {
-        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    public void setUp() throws LiveInitializationException {
+        LiveUtils.initializeDatabase(LiveUtils.initializationFile);
     }
 
     @After
-    public void tearDown() throws DatabaseInitializationException {
-        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
+    public void tearDown() throws LiveInitializationException {
+        LiveUtils.initializeDatabase(LiveUtils.initializationFile);
     }
 }

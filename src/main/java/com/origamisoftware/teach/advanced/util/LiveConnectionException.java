@@ -1,20 +1,9 @@
 package com.origamisoftware.teach.advanced.util;
 
 /**
- * This class is used to signal a problem initializing to a database.
+ * This class is used to signal a problem connecting to a database.
  */
-public class DatabaseInitializationException extends Exception {
-    /**
-     * Constructs a new exception with the specified detail message.  The
-     * cause is not initialized, and may subsequently be initialized by
-     * a call to {@link #initCause}.
-     *
-     * @param message the detail message. The detail message is saved for
-     *                later retrieval by the {@link #getMessage()} method.
-     */
-    public DatabaseInitializationException(String message) {
-        super(message);
-    }
+public class LiveConnectionException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message and
@@ -30,7 +19,7 @@ public class DatabaseInitializationException extends Exception {
      *         unknown.)
      * @since  1.4
      */
-    public DatabaseInitializationException(String message, Throwable cause) {
+    public LiveConnectionException(String message, Throwable cause) {
         super(message, cause);
     }
 }

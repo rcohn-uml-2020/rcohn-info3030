@@ -1,6 +1,6 @@
 package com.origamisoftware.teach.advanced.model.database;
 
-import com.origamisoftware.teach.advanced.util.DatabaseUtils;
+import com.origamisoftware.teach.advanced.util.LiveUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -12,7 +12,7 @@ public class QuoteDAOTest extends AbstractBaseDAOTest {
 
     @Test
     public void testRead() {
-        QuoteDAO quoteDAO = DatabaseUtils.findUniqueResultBy("id", 1, QuoteDAO.class, true);
+        QuoteDAO quoteDAO = LiveUtils.findUniqueResultBy("id", 1, QuoteDAO.class, true);
         assertTrue("first quoteDAO found", quoteDAO.getId() == 1);
     }
 
