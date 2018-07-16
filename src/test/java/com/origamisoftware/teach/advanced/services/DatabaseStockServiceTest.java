@@ -51,7 +51,7 @@ public class DatabaseStockServiceTest extends DatabaseServiceTest {
 
         List<StockQuote> stockQuotes = databaseStockService.getQuote(symbol, fromCalendar, untilCalendar, Interval.DAY);
 
-        assertFalse("verify stock quotes where returned", stockQuotes.isEmpty());
+        assertFalse("verify stock quotes were returned", stockQuotes.isEmpty());
     }
 
     @Test

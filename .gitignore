@@ -131,3 +131,5 @@ target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.Databas
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.ServiceFactoryTest.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.LiveStockServiceTest.xml
 target/surefire-reports/com.origamisoftware.teach.advanced.services.LiveStockServiceTest.txt
+target/classes/hibernate.cfg.xml
+target/classes/hibernate.cfg.xml

@@ -45,11 +45,6 @@ public class DatabaseUtilsTest {
         assertTrue("verify that we can execute a statement against quote table",execute);
         execute = statement.execute("select * from person");
         assertTrue("verify that we can execute a statement against person table",execute);
-        execute = statement.execute("select * from stock_symbol");
-        assertTrue("verify that we can execute a statement against stock_symbol table",execute);
-        execute = statement.execute("select * from person_stocks");
-        assertTrue("verify that we can execute a statement against person_stocks table",execute);
-
     }
 
 }

@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Verify the PersonDAO class
@@ -15,11 +15,11 @@ public class PersonDAOTest extends AbstractBaseDAOTest {
     @Test
     public void testRead() {
         PersonDAO personDAO = DatabaseUtils.findUniqueResultBy("id", 1, PersonDAO.class, true);
-        assertTrue("first PersonDAO found", personDAO.getId() == 1);
+        assertEquals("first PersonDAO found", personDAO.getId(), 1);
     }
 
     @Test
-    public void testWrite() throws Exception {
+    public void testWrite() {
         Session session = DatabaseUtils.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         PersonDAO personDAO = new PersonDAO();
