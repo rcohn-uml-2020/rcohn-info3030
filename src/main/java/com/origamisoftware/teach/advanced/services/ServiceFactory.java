@@ -17,12 +17,4 @@ public class ServiceFactory {
     public static StockService getStockService() {
         return new LiveStockService();
     }
-
-    /**
-     *
-     * @return get a <CODE>UserService</CODE> instance
-     */
-    public static  UserService getUserService() {
-        return new DatabaseUserService();
-    }
 }
