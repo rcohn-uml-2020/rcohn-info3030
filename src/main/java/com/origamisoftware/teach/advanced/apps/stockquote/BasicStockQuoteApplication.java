@@ -1,11 +1,9 @@
 package com.origamisoftware.teach.advanced.apps.stockquote;
 
-import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.services.StockService;
 import com.origamisoftware.teach.advanced.services.StockServiceException;
 import com.origamisoftware.teach.advanced.services.ServiceFactory;
-import com.origamisoftware.teach.advanced.util.Interval;
 
 import java.text.ParseException;
 import java.util.List;
@@ -70,21 +68,9 @@ public class BasicStockQuoteApplication {
      * @throws StockServiceException If data about the stock can't be retrieved. This is a
      *                               fatal error.
      */
-    public String displayStockQuotes(StockQuery stockQuery) throws StockServiceException {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String displayStockQuote(StockQuote stockQuote) throws StockServiceException {
 
-        List<StockQuote> stockQuotes =
-                stockService.getQuote(stockQuery.getSymbol(),
-                        stockQuery.getFrom(),
-                        stockQuery.getUntil(),
-                        Interval.DAY); // get one quote for each day in the from until date range.
-
-        stringBuilder.append("Stock quotes for: " + stockQuery.getSymbol() + "\n");
-        for (StockQuote stockQuote : stockQuotes) {
-            stringBuilder.append(stockQuote.toString());
-        }
-
-        return stringBuilder.toString();
+        return stockQuote.toString();
     }
 
     /**
@@ -121,17 +107,17 @@ public class BasicStockQuoteApplication {
         // be optimistic init to positive values
         ProgramTerminationStatusEnum exitStatus = ProgramTerminationStatusEnum.NORMAL;
         String programTerminationMessage = "Normal program termination.";
-        if (args.length != 3) {
+        if (args.length > 2) {
             exit(ProgramTerminationStatusEnum.ABNORMAL,
-                    "Please supply 3 arguments a stock symbol, a start date (MM/DD/YYYY) and end date (MM/DD/YYYY)");
+                    "Please supply a stock symbol and (optionally) a date (MM/DD/YYYY)");
         }
         try {
 
-            StockQuery stockQuery = new StockQuery(args[0], args[1], args[2]);
+            StockQuote stockQuote = new StockQuote (args[0], args[1]);
             StockService stockService = ServiceFactory.getStockService();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
-            basicStockQuoteApplication.displayStockQuotes(stockQuery);
+            basicStockQuoteApplication.displayStockQuote(stockQuote);
 
         } catch (ParseException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
