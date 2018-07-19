@@ -11,7 +11,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "person_stocks", schema = "", catalog = "stocks")
+@Table(name = "person_stocks", schema = "stocks")
 public class PersonStocksDAO implements DatabasesAccessObject {
 
     private int id;

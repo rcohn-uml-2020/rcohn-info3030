@@ -117,9 +117,6 @@ class DatabaseStockService implements StockService {
 
          String queryString = "select * from quote where symbol = '" + symbol + "'"
          + "and time BETWEEN '" + fromString + "' and '" + untilString + "'";
-         **/
-
-        /**
          *
          * Here is the general idea behind filtering on interval.
          * It is not perfect, it would be better to filter using SQL and let the DBMS to it,

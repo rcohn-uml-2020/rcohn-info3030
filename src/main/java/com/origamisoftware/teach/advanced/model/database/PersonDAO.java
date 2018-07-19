@@ -10,7 +10,7 @@ import javax.persistence.Table;
  *  Models person table
  */
 @Entity
-@Table(name = "person", schema = "", catalog = "stocks")
+@Table(name = "person", schema = "stocks")
 public class PersonDAO implements DatabasesAccessObject{
     private int id;
     private String userName;

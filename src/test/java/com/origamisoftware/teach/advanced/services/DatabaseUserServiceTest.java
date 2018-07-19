@@ -26,12 +26,4 @@ public class DatabaseUserServiceTest extends DatabaseServiceTest{
         databaseUserService.addPerson(user);
     }
 
-    @Test(expected = DuplicateUserNameException.class)
-    public void testAddPersonDuplicateUser() throws Exception{
-        String sam = "Sam";
-        User user = new User(sam);
-        databaseUserService.addPerson(user);
-
-    }
-
 }

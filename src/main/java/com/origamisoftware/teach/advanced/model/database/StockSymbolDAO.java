@@ -10,7 +10,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "stock_symbol", schema = "", catalog = "stocks")
+@Table(name = "stock_symbol", schema = "stocks")
 public class StockSymbolDAO implements DatabasesAccessObject {
     private int id;
     private String symbol;
