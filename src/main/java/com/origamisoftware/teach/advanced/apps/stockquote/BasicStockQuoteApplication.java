@@ -123,7 +123,7 @@ public class BasicStockQuoteApplication {
         String programTerminationMessage = "Normal program termination.";
         if (args.length != 3) {
             exit(ProgramTerminationStatusEnum.ABNORMAL,
-                    "Please supply 3 arguments a stock symbol, a start date (MM/DD/YYYY) and end date (MM/DD/YYYY)");
+                    "Please supply 3 arguments a stock symbol, a start date (yyyy-MM-dd HH:mm:ss) and end date (yyyy-MM-dd HH:mm:ss)");
         }
         try {
 
