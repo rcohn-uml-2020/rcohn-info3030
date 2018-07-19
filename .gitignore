@@ -133,3 +133,7 @@ target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.LiveSto
 target/surefire-reports/com.origamisoftware.teach.advanced.services.LiveStockServiceTest.txt
 target/classes/hibernate.cfg.xml
 target/classes/hibernate.cfg.xml
+target/surefire/surefire_06082773380169023424tmp
+target/surefire/surefire_01326773606732076183tmp
+target/surefire/surefire7523862078836535517tmp
+target/surefire/surefire4936924024318913835tmp

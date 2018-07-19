@@ -6,10 +6,10 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 import java.io.*;
 import java.sql.Connection;
@@ -140,9 +140,9 @@ public class DatabaseUtils {
 
                 Configuration configuration = getConfiguration();
 
-                ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties())
-                        .buildServiceRegistry();
+                        .build();
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
