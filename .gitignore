@@ -131,3 +131,4 @@ target/surefire-reports/com.origamisoftware.teach.advanced.model.database.StockS
 target/surefire-reports/com.origamisoftware.teach.advanced.model.database.QuoteDAOTest.txt
 target/surefire-reports/com.origamisoftware.teach.advanced.model.database.PersonStocksDAOTest.txt
 target/surefire-reports/com.origamisoftware.teach.advanced.model.database.PersonDAOTest.txt
+target/classes/hibernate.cfg.xml
