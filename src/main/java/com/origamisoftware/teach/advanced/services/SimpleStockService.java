@@ -2,14 +2,16 @@ package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockQuote;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
- * This API describes how to get stock data from an external resource.
+ * An implementation of the StockService that returns hard coded data.
  */
-public interface StockService {
-
+public class SimpleStockService implements StockService {
 
     /**
      * Return the current price for a share of stock  for the given symbol
@@ -21,7 +23,11 @@ public interface StockService {
      *                               If this happens, trying the service may work, depending on the actual cause of the
      *                               error.
      */
-    StockQuote getQuote(String symbol) throws StockServiceException;
+    @Override
+    public StockQuote getQuote(String symbol) {
+        // a dead simple implementation.
+        return new StockQuote(new BigDecimal(100), Calendar.getInstance().getTime(), symbol);
+    }
 
     /**
      * Get a historical list of stock quotes for the provide symbol
@@ -34,7 +40,16 @@ public interface StockService {
      * If this happens, trying the service may work, depending on the actual cause of the
      * error.
      */
-    List<StockQuote> getQuote(String symbol, Calendar from, Calendar until) throws StockServiceException;
-
+    @Override
+    public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until) {
+        // a dead simple implementation.
+        List<StockQuote> stockQuotes = new ArrayList<>();
+        Date aDay = from.getTime();
+        while (until.after(aDay)) {
+            stockQuotes.add(new StockQuote(new BigDecimal(100), aDay, symbol));
+            from.add(Calendar.DAY_OF_YEAR, 1);
+            aDay = from.getTime();
+        }
+        return stockQuotes;
+    }
 }
-

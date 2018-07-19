@@ -4,7 +4,6 @@ import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.services.StockService;
 import com.origamisoftware.teach.advanced.services.StockServiceException;
-import com.origamisoftware.teach.advanced.util.Interval;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,8 +42,8 @@ public class BasicStockQuoteApplicationTest {
     public void testDisplayResults() throws ParseException, StockServiceException {
         basicStockQuoteApplication = new BasicStockQuoteApplication(stockServiceMock);
         String symbol = "APPL";
-        String from = "2011-10-29 12:12:12";    //yyyy-MM-dd HH:mm:ss
-        String until = "2014-11-29 12:12:12";
+        String from = "2011/10/29";
+        String until = "2011/11/29";
         StockQuery stockQuery = new StockQuery(symbol, from, until);
 
         List<StockQuote> stockQuotes = new ArrayList<>();
@@ -53,10 +52,7 @@ public class BasicStockQuoteApplicationTest {
         StockQuote stockQuoteUntilDate = new StockQuote(new BigDecimal(100), stockQuery.getUntil().getTime(), stockQuery.getSymbol());
         stockQuotes.add(stockQuoteUntilDate);
 
-        when(stockServiceMock.getQuote(any(String.class),
-                any(Calendar.class),
-                any(Calendar.class),
-                any(Interval.class))).thenReturn(stockQuotes);
+        when(stockServiceMock.getQuote(any(String.class), any(Calendar.class), any(Calendar.class))).thenReturn(stockQuotes);
 
         String output = basicStockQuoteApplication.displayStockQuotes(stockQuery);
         assertTrue("make sure symbol appears in output", output.contains(symbol));
