@@ -4,7 +4,8 @@ import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.services.StockService;
 import com.origamisoftware.teach.advanced.services.StockServiceException;
-import com.origamisoftware.teach.advanced.services.StockServiceFactory;
+import com.origamisoftware.teach.advanced.services.ServiceFactory;
+import com.origamisoftware.teach.advanced.util.Interval;
 
 import java.text.ParseException;
 import java.util.List;
@@ -73,7 +74,10 @@ public class BasicStockQuoteApplication {
         StringBuilder stringBuilder = new StringBuilder();
 
         List<StockQuote> stockQuotes =
-                stockService.getQuote(stockQuery.getSymbol(), stockQuery.getFrom(), stockQuery.getUntil());
+                stockService.getQuote(stockQuery.getSymbol(),
+                        stockQuery.getFrom(),
+                        stockQuery.getUntil(),
+                        Interval.DAY); // get one quote for each day in the from until date range.
 
         stringBuilder.append("Stock quotes for: " + stockQuery.getSymbol() + "\n");
         for (StockQuote stockQuote : stockQuotes) {
@@ -109,7 +113,6 @@ public class BasicStockQuoteApplication {
     /**
      * Run the StockTicker application.
      * <p/>
-     * When invoking the program supply one ore more stock symbols.
      *
      * @param args one or more stock symbols
      */
@@ -125,7 +128,7 @@ public class BasicStockQuoteApplication {
         try {
 
             StockQuery stockQuery = new StockQuery(args[0], args[1], args[2]);
-            StockService stockService = StockServiceFactory.getInstance();
+            StockService stockService = ServiceFactory.getStockService();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
             basicStockQuoteApplication.displayStockQuotes(stockQuery);
@@ -136,6 +139,9 @@ public class BasicStockQuoteApplication {
         } catch (StockServiceException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
             programTerminationMessage = "StockService failed: " + e.getMessage();
+        }  catch (Throwable t) {
+            exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
+            programTerminationMessage = "General application error: " + t.getMessage();
         }
 
         exit(exitStatus, programTerminationMessage);
