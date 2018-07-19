@@ -79,7 +79,7 @@ public class BasicStockQuoteApplication {
                         stockQuery.getUntil(),
                         Interval.DAY); // get one quote for each day in the from until date range.
 
-        stringBuilder.append("Stock quotes for: " + stockQuery.getSymbol() + "\n");
+        stringBuilder.append("Stock quotes for: ").append(stockQuery.getSymbol()).append("\n");
         for (StockQuote stockQuote : stockQuotes) {
             stringBuilder.append(stockQuote.toString());
         }
