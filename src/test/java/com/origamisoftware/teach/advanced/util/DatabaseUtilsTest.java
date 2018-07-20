@@ -39,6 +39,7 @@ public class DatabaseUtilsTest {
 
     @Test
     public void testGetConnectionWorks() throws Exception{
+        DatabaseUtils.initializeDatabase(DatabaseUtils.initializationFile);
         Connection connection = DatabaseUtils.getConnection();
         Statement statement = connection.createStatement();
         boolean execute = statement.execute("select * from person");
