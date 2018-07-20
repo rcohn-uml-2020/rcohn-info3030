@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout      
       - run: sudo apt install -y mysql-client
-      - run: mysql -u monty --password=some_pass stocks < src/main/sql/stocks_db_initialization.sql
+      - run: mysql -u monty --password=some_pass
 
       # Download and cache dependencies
       - restore_cache:
