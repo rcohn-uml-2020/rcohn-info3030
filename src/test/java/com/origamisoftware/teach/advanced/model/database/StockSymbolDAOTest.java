@@ -16,7 +16,7 @@ public class StockSymbolDAOTest extends AbstractBaseDAOTest {
     public void testRead() {
         StockSymbolDAO stockSymbolDAO = DatabaseUtils.findUniqueResultBy("symbol", "APPL",
                 StockSymbolDAO.class, true);
-        assertThat(stockSymbolDAO.getId(), is(equalTo(2)));
+        assertThat(stockSymbolDAO.getId(), is(equalTo(5)));
     }
 
 }
