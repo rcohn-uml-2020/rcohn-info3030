@@ -18,7 +18,6 @@
 
         <mapping class="com.origamisoftware.teach.advanced.model.database.PersonDAO"/>
         <mapping class="com.origamisoftware.teach.advanced.model.database.PersonStocksDAO"/>
-
         <mapping class="com.origamisoftware.teach.advanced.model.database.QuoteDAO"/>
         <mapping class="com.origamisoftware.teach.advanced.model.database.StockSymbolDAO"/>
 
