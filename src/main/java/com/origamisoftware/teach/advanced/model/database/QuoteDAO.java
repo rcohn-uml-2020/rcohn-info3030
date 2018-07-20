@@ -70,7 +70,7 @@ public class QuoteDAO implements DatabasesAccessObject {
     }
 
     @ManyToOne
-    @JoinColumn(name = "symbol", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "symbol_id", referencedColumnName = "id", nullable = false)
     public StockSymbolDAO getStockSymbolBySymbolId() {
         return stockSymbolBySymbolId;
     }
