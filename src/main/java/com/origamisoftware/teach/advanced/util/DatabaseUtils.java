@@ -61,7 +61,7 @@ public class DatabaseUtils {
             // an example of throwing an exception appropriate to the abstraction.
         } catch (ClassNotFoundException | SQLException e) {
             String message = e.getMessage();
-            throw new DatabaseConnectionException("Could not connection to database." + message, e);
+            throw new DatabaseConnectionException("Could not connect to database." + message, e);
         }
         return connection;
     }
