@@ -46,7 +46,7 @@ INSERT INTO stock_symbol (symbol) VALUES
   ('CCIH'), ('CCOI'), ('CHIC'), ('CNCG') ('CNV'), ('CRWG'), ('CXDO'), ('EATR'), ('EDXC'), ('EGOV'),
   ('ELNK'), ('ENV'), ('EPAZ'), ('FB'), ('FDIT'), ('FLPC'), ('GCLT'), ('GOOG'), ('GREZ'), ('IACI'),
   ('ICOA'), ('IIJI'), ('ILIA'), ('INAP'), ('IPAS'), ('JCOM'), ('JRJC'), ('LLNW'), ('LOGL'), ('LOOK'),
-  ('MEET'), ('MOMO'), ('NETE'), ('NTES'), ('NQ'), ('OTOW') ('VNET'), ('VOIS') ('WIFI');
+  ('MEET'), ('MOMO'), ('NETE'), ('NTES'), ('NQ'), ('OTOW'), ('VNET'), ('VOIS'), ('WIFI');
 
 INSERT INTO person (user_name) VALUES ('Tom'), ('Dick'), ('Harry');
 
