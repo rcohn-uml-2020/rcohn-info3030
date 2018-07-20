@@ -19,7 +19,7 @@ public class DatabaseConnectionException extends Exception {
      *         unknown.)
      * @since  1.4
      */
-    DatabaseConnectionException(String message, Throwable cause) {
+    public DatabaseConnectionException(String message, Throwable cause) {
         super(message, cause);
     }
 }

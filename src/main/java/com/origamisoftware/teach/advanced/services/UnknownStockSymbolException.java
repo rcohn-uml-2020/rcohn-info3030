@@ -1,9 +1,9 @@
 package com.origamisoftware.teach.advanced.services;
 
 /**
- * Used to signal a problem with the StockService.
+ * Used to signal that there is no data associated with the specified stock symbol.
  */
-public class StockServiceException extends Exception {
+public class UnknownStockSymbolException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message.  The
@@ -13,7 +13,7 @@ public class StockServiceException extends Exception {
      * @param message the detail message. The detail message is saved for
      *                later retrieval by the {@link #getMessage()} method.
      */
-    public StockServiceException(String message) {
+    public UnknownStockSymbolException(String message) {
         super(message);
     }
 
@@ -31,7 +31,7 @@ public class StockServiceException extends Exception {
      *                unknown.)
      * @since 1.4
      */
-    public StockServiceException(String message, Throwable cause) {
+    public UnknownStockSymbolException(String message, Throwable cause) {
         super(message, cause);
     }
 }

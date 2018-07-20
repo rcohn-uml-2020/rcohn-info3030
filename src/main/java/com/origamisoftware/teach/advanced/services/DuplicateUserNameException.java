@@ -1,9 +1,9 @@
 package com.origamisoftware.teach.advanced.services;
 
 /**
- * Used to signal a problem with the StockService.
+ * Used to signal that a user name is not unique.
  */
-public class StockServiceException extends Exception {
+public class DuplicateUserNameException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message.  The
@@ -13,7 +13,7 @@ public class StockServiceException extends Exception {
      * @param message the detail message. The detail message is saved for
      *                later retrieval by the {@link #getMessage()} method.
      */
-    public StockServiceException(String message) {
+    public DuplicateUserNameException(String message) {
         super(message);
     }
 
@@ -31,7 +31,7 @@ public class StockServiceException extends Exception {
      *                unknown.)
      * @since 1.4
      */
-    public StockServiceException(String message, Throwable cause) {
+    public DuplicateUserNameException(String message, Throwable cause) {
         super(message, cause);
     }
 }

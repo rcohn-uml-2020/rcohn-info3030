@@ -4,7 +4,8 @@ import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.services.StockService;
 import com.origamisoftware.teach.advanced.services.StockServiceException;
-import com.origamisoftware.teach.advanced.services.StockServiceFactory;
+import com.origamisoftware.teach.advanced.services.ServiceFactory;
+import com.origamisoftware.teach.advanced.util.Interval;
 
 import java.text.ParseException;
 import java.util.List;
@@ -37,7 +38,7 @@ public class BasicStockQuoteApplication {
          *                        indicates success or normal termination.
          *                        non 0 numbers indicate abnormal termination.
          */
-        ProgramTerminationStatusEnum(int statusCodeValue) {
+        private ProgramTerminationStatusEnum(int statusCodeValue) {
             this.statusCode = statusCodeValue;
         }
 
@@ -57,7 +58,7 @@ public class BasicStockQuoteApplication {
      *                     <p/>
      *                     NOTE: this is a example of Dependency Injection in action.
      */
-    BasicStockQuoteApplication(StockService stockService) {
+    public BasicStockQuoteApplication(StockService stockService) {
         this.stockService = stockService;
     }
 
@@ -69,16 +70,18 @@ public class BasicStockQuoteApplication {
      * @throws StockServiceException If data about the stock can't be retrieved. This is a
      *                               fatal error.
      */
-    String displayStockQuotes(StockQuery stockQuery) throws StockServiceException {
+    public String displayStockQuotes(StockQuery stockQuery) throws StockServiceException {
         StringBuilder stringBuilder = new StringBuilder();
 
         List<StockQuote> stockQuotes =
-                stockService.getQuote(stockQuery.getSymbol(), stockQuery.getFrom(), stockQuery.getUntil());
+                stockService.getQuote(stockQuery.getSymbol(),
+                        stockQuery.getFrom(),
+                        stockQuery.getUntil(),
+                        Interval.DAY); // get one quote for each day in the from until date range.
 
         stringBuilder.append("Stock quotes for: ").append(stockQuery.getSymbol()).append("\n");
-
         for (StockQuote stockQuote : stockQuotes) {
-            stringBuilder.append(stockQuote.toString()).append("\n");
+            stringBuilder.append(stockQuote.toString());
         }
 
         return stringBuilder.toString();
@@ -110,7 +113,6 @@ public class BasicStockQuoteApplication {
     /**
      * Run the StockTicker application.
      * <p/>
-     * When invoking the program supply one ore more stock symbols.
      *
      * @param args one or more stock symbols
      */
@@ -121,15 +123,15 @@ public class BasicStockQuoteApplication {
         String programTerminationMessage = "Normal program termination.";
         if (args.length != 3) {
             exit(ProgramTerminationStatusEnum.ABNORMAL,
-                    "Please supply 3 arguments a stock symbol, a start date (MM/DD/YYYY) and end date (MM/DD/YYYY)");
+                    "Please supply 3 arguments a stock symbol, a start date (yyyy-MM-dd HH:mm:ss) and end date (yyyy-MM-dd HH:mm:ss)");
         }
         try {
 
             StockQuery stockQuery = new StockQuery(args[0], args[1], args[2]);
-            StockService stockService = StockServiceFactory.getInstance();
+            StockService stockService = ServiceFactory.getStockService();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
-            System.out.print(basicStockQuoteApplication.displayStockQuotes(stockQuery));
+            basicStockQuoteApplication.displayStockQuotes(stockQuery);
 
         } catch (ParseException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
@@ -137,6 +139,9 @@ public class BasicStockQuoteApplication {
         } catch (StockServiceException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
             programTerminationMessage = "StockService failed: " + e.getMessage();
+        }  catch (Throwable t) {
+            exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
+            programTerminationMessage = "General application error: " + t.getMessage();
         }
 
         exit(exitStatus, programTerminationMessage);
