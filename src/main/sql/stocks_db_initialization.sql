@@ -43,7 +43,7 @@ CREATE TABLE quote (
 
 INSERT INTO stock_symbol (symbol) VALUES
   ('AGTK'), ('AKAM'), ('AMZN'), ('AOL'), ('APPL'), ('BCOM'), ('BCOR'), ('BIDU'),('BRNW'),('CARB'),
-  ('CCIH'), ('CCOI'), ('CHIC'), ('CNCG') ('CNV'), ('CRWG'), ('CXDO'), ('EATR'), ('EDXC'), ('EGOV'),
+  ('CCIH'), ('CCOI'), ('CHIC'), ('CNCG'), ('CNV'), ('CRWG'), ('CXDO'), ('EATR'), ('EDXC'), ('EGOV'),
   ('ELNK'), ('ENV'), ('EPAZ'), ('FB'), ('FDIT'), ('FLPC'), ('GCLT'), ('GOOG'), ('GREZ'), ('IACI'),
   ('ICOA'), ('IIJI'), ('ILIA'), ('INAP'), ('IPAS'), ('JCOM'), ('JRJC'), ('LLNW'), ('LOGL'), ('LOOK'),
   ('MEET'), ('MOMO'), ('NETE'), ('NTES'), ('NQ'), ('OTOW'), ('VNET'), ('VOIS'), ('WIFI');
