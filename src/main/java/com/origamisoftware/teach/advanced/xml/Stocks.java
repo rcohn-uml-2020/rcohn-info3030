@@ -1,5 +1,5 @@
 
-package com.origamisoftware.teach.advanced.model;
+package com.origamisoftware.teach.advanced.xml;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;

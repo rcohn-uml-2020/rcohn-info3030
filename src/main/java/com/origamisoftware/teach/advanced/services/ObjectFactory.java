@@ -1,7 +1,7 @@
 
 package com.origamisoftware.teach.advanced.services;
 
-import com.origamisoftware.teach.advanced.model.Stocks;
+import com.origamisoftware.teach.advanced.xml.Stocks;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

@@ -31,7 +31,7 @@ public class XMLUtils {
          * @throws InvalidXMLException if the provided  xmlInstance cannot be successfully parsed.
 
          */
-        public static  <T extends XMLDomainObject> T unmarshall(String xmlInstance, Class T)
+        public static  <T extends XMLDomainObject> T unmarshal(String xmlInstance, Class T)
                 throws InvalidXMLException {
             T returnValue;
             try {
@@ -53,7 +53,7 @@ public class XMLUtils {
          * @return XML Domain Object of type T populated with values in the provided String.
          * @throws InvalidXMLException if the provided  xmlInstance cannot be successfully parsed.
          */
-        public static <T extends XMLDomainObject> T unmarshall(String xmlInstance, Class T, String schemaName)
+        public static <T extends XMLDomainObject> T unmarshal(String xmlInstance, Class T, String schemaName)
                 throws InvalidXMLException {
 
             T returnValue;
@@ -82,7 +82,7 @@ public class XMLUtils {
      * @return a String which is a valid XML instance for the domain class provided.
      * @throws InvalidXMLException is the object can't be parsed into XML.
      */
-    public static String marshall(XMLDomainObject domainClass) throws InvalidXMLException {
+    public static String marshal(XMLDomainObject domainClass) throws InvalidXMLException {
        try {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         JAXBContext context = JAXBContext.newInstance(domainClass.getClass());
