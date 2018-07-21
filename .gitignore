@@ -129,3 +129,8 @@ target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.database.Q
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.database.StockSymbolDAOTest.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.DatabaseUserServiceTest.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.ServiceFactoryTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.util.DatabaseUtilsTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.xml
+target/surefire-reports/com.origamisoftware.teach.advanced.util.DatabaseUtilsTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.services.DatabaseStockServiceTest.txt
+target/classes/hibernate.cfg.xml
