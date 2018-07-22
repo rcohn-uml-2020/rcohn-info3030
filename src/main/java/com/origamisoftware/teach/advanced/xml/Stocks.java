@@ -40,7 +40,7 @@ import java.util.List;
     "stock"
 })
 @XmlRootElement(name = "stocks")
-public class Stocks {
+public class Stocks implements XMLDomainObject{
 
     protected List<Stocks.Stock> stock;
 
