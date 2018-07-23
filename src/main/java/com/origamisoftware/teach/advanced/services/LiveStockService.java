@@ -1,16 +1,13 @@
 package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockQuote;
-
-import com.origamisoftware.teach.advanced.util.LiveUtils;
 import com.origamisoftware.teach.advanced.util.Interval;
+import com.origamisoftware.teach.advanced.util.LiveUtils;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-
-import java.math.BigDecimal;
 
 /**
  * An implementation of the StockService interface that gets
@@ -29,12 +26,12 @@ class LiveStockService implements StockService {
      *                               error.
      */
     @Override
-    public StockQuote getQuote(String symbol) throws StockServiceException {
+    public StockQuote getQuote(String symbol) throws StockServiceException, IOException {
         StockQuote stockQuote;
 
         BigDecimal quote = LiveUtils.getQuote(symbol).getPrice();
 
-        if (quote.isNull()) {
+        if (quote == null) {
             throw new StockServiceException("Could not find any stock quotes for: " + symbol);
         }
 

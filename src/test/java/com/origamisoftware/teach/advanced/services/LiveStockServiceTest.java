@@ -22,20 +22,12 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Unit tests for the LiveStockService
  */
-public class LiveStockServiceTest extends DatabaseServiceTest {
+public class LiveStockServiceTest {
 
-    private StockService databaseStockService;
-
-    @Before
-    public void setUp() throws LiveInitializationException {
-        super.setUp();
-        databaseStockService = ServiceFactory.getStockService();
-    }
-
-    @Test
-    public void testGetQuote() throws Exception {
+   @Test
+    public void testGetQuote() {
         String symbol = "APPL";
-        StockQuote stockQuote = databaseStockService.getQuote(symbol);
+        StockQuote stockQuote = LiveStockService.getQuote(symbol);
         assertNotNull("Verify we can get a stock quote from the db", stockQuote);
         assertEquals("Make sure the symbols match", symbol, stockQuote.getSymbol());
     }
@@ -52,38 +44,6 @@ public class LiveStockServiceTest extends DatabaseServiceTest {
         List<StockQuote> stockQuotes = databaseStockService.getQuote(symbol, fromCalendar, untilCalendar, Interval.DAY);
 
         assertFalse("verify stock quotes where returned", stockQuotes.isEmpty());
-    }
-
-    @Test
-    public void testGetQuoteWithinRangeDay() throws Exception {
-
-        String fromDateString = "2015-02-09 00:01:01";
-        String endDateString = "2015-02-11 01:08:01";
-        String symbol = "AMZN";
-
-        Calendar fromCalendar = makeCalendarFromString(fromDateString);
-        Calendar untilCalendar = makeCalendarFromString(endDateString);
-
-        List<StockQuote> stockQuotes = databaseStockService.getQuote(symbol, fromCalendar, untilCalendar, Interval.DAY);
-        assertEquals("got back expected number of stockquotes for one day interval", 4, stockQuotes.size());
-
-        stockQuotes = databaseStockService.getQuote(symbol, fromCalendar, untilCalendar, Interval.MINUTE);
-        assertEquals("got back expected number of stockquotes for one minute interval", 4, stockQuotes.size());
-    }
-
-    @Test
-    public void testGetQuoteWithinRangeMinute() throws Exception {
-
-        String fromDateString = "2015-02-10 00:02:01";
-        String endDateString = "2015-02-10 00:04:01";
-        String symbol = "AMZN";
-
-        Calendar fromCalendar = makeCalendarFromString(fromDateString);
-        Calendar untilCalendar = makeCalendarFromString(endDateString);
-
-        List<StockQuote> stockQuotes =
-                databaseStockService.getQuote(symbol, fromCalendar, untilCalendar, Interval.MINUTE);
-        assertEquals("got back expected number of stockquotes for one minute interval", 3, stockQuotes.size());
     }
 
     /**
