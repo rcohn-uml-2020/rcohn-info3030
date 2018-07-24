@@ -54,7 +54,7 @@ javadoc/stylesheet.css
 target/surefire-reports/TEST-edu.rcohn.advancedjava.Service.StockServiceFactoryTest.xml
 target/surefire-reports/TEST-edu.rcohn.advancedjava.Service.BasicStockServiceTest.xml
 target/surefire-reports/TEST-edu.rcohn.advancedjava.Model.StockQuoteTest.xml
-target/surefire-reports/TEST-com.origamisoftware.teach.advanced.util.LiveUtilsTest.xml
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.util.LiveAdapterTest.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.StockServiceFactoryTest.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.services.LiveStockServiceTest.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.model.StockQuoteTest.xml
@@ -63,7 +63,7 @@ target/surefire-reports/TEST-com.origamisoftware.teach.advanced.apps.stockquote.
 target/surefire-reports/edu.rcohn.advancedjava.Service.StockServiceFactoryTest.txt
 target/surefire-reports/edu.rcohn.advancedjava.Service.BasicStockServiceTest.txt
 target/surefire-reports/edu.rcohn.advancedjava.Model.StockQuoteTest.txt
-target/surefire-reports/com.origamisoftware.teach.advanced.util.LiveUtilsTest.txt
+target/surefire-reports/com.origamisoftware.teach.advanced.util.LiveAdapterTest.txt
 target/surefire-reports/com.origamisoftware.teach.advanced.services.StockServiceFactoryTest.txt
 target/surefire-reports/com.origamisoftware.teach.advanced.services.LiveStockServiceTest.txt
 target/surefire-reports/com.origamisoftware.teach.advanced.model.StockQuoteTest.txt

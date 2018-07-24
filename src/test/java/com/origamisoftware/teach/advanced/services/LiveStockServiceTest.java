@@ -2,9 +2,6 @@ package com.origamisoftware.teach.advanced.services;
 
 import com.origamisoftware.teach.advanced.model.StockData;
 import com.origamisoftware.teach.advanced.model.StockQuote;
-import com.origamisoftware.teach.advanced.util.LiveInitializationException;
-import com.origamisoftware.teach.advanced.util.Interval;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.text.DateFormat;
@@ -15,19 +12,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
 /**
  * Unit tests for the LiveStockService
  */
 public class LiveStockServiceTest {
 
+    private LiveStockService liveStockService = new LiveStockService();
+
    @Test
     public void testGetQuote() {
-        String symbol = "APPL";
-        StockQuote stockQuote = LiveStockService.getQuote(symbol);
+        String symbol = "AAPL";
+        StockQuote stockQuote = null;
+        try {
+            stockQuote = liveStockService.getQuote(symbol);
+        } catch (StockServiceException e) {System.out.println(e.getMessage());}
         assertNotNull("Verify we can get a stock quote from the db", stockQuote);
         assertEquals("Make sure the symbols match", symbol, stockQuote.getSymbol());
     }
@@ -35,15 +36,15 @@ public class LiveStockServiceTest {
     @Test
     public void testGetQuoteWithIntervalBasic() throws Exception {
         String symbol = "GOOG";
-        String fromStringDate = "2000-02-10 00:00:01";
-        String untilStringDate = "2015-02-03 00:00:01";
+        String fromStringDate = "2015-02-10 00:00:01";
+        String untilStringDate = "2018-02-03 00:00:01";
 
         Calendar fromCalendar = makeCalendarFromString(fromStringDate);
         Calendar untilCalendar = makeCalendarFromString(untilStringDate);
 
-        List<StockQuote> stockQuotes = databaseStockService.getQuote(symbol, fromCalendar, untilCalendar, Interval.DAY);
+        List<StockQuote> stockQuotes = liveStockService.getQuote(symbol, fromCalendar, untilCalendar);
 
-        assertFalse("verify stock quotes where returned", stockQuotes.isEmpty());
+        assertThat("stock quotes returned", stockQuotes.isEmpty(), is(false));
     }
 
     /**

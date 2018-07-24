@@ -4,7 +4,6 @@ import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
 import com.origamisoftware.teach.advanced.services.StockService;
 import com.origamisoftware.teach.advanced.services.StockServiceException;
-import com.origamisoftware.teach.advanced.util.Interval;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,9 +13,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
+import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,7 +42,7 @@ public class BasicStockQuoteApplicationTest {
     @Test
     public void testDisplayResults() throws ParseException, StockServiceException {
         basicStockQuoteApplication = new BasicStockQuoteApplication(stockServiceMock);
-        String symbol = "APPL";
+        String symbol = "AAPL";
         String from = "2011-10-29 12:12:12";    //yyyy-MM-dd HH:mm:ss
         String until = "2014-11-29 12:12:12";
         StockQuery stockQuery = new StockQuery(symbol, from, until);
@@ -53,15 +53,17 @@ public class BasicStockQuoteApplicationTest {
         StockQuote stockQuoteUntilDate = new StockQuote(new BigDecimal(100), stockQuery.getUntil().getTime(), stockQuery.getSymbol());
         stockQuotes.add(stockQuoteUntilDate);
 
-        when(stockServiceMock.getQuote(any(String.class),
+        when(stockServiceMock.getQuote(
+                any(String.class),
                 any(Calendar.class),
-                any(Calendar.class),
-                any(Interval.class))).thenReturn(stockQuotes);
+                any(Calendar.class)))
+                .thenReturn(stockQuotes);
 
         String output = basicStockQuoteApplication.displayStockQuotes(stockQuery);
-        assertTrue("make sure symbol appears in output", output.contains(symbol));
-        assertTrue("make sure from date appears in output", output.contains(from));
-        assertTrue("make sure until date in output", output.contains(until));
+        System.out.println(output);
+        assertThat("symbol appears in output", output.contains(symbol), is(true));
+        assertThat("from date appears in output", output.contains(from), is(true));
+        assertThat("until date appears in output", output.contains(until), is(true));
 
     }
 

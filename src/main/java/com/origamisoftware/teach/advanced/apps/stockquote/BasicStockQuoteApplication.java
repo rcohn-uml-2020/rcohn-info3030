@@ -1,9 +1,10 @@
 package com.origamisoftware.teach.advanced.apps.stockquote;
 
+import com.origamisoftware.teach.advanced.model.StockQuery;
 import com.origamisoftware.teach.advanced.model.StockQuote;
+import com.origamisoftware.teach.advanced.services.ServiceFactory;
 import com.origamisoftware.teach.advanced.services.StockService;
 import com.origamisoftware.teach.advanced.services.StockServiceException;
-import com.origamisoftware.teach.advanced.services.ServiceFactory;
 
 import java.text.ParseException;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class BasicStockQuoteApplication {
 
-    private StockService stockService;
+    StockService stockService;
 
     // an example of how to use enum - not part of assignment 3 but useful for assignment 4
 
@@ -68,9 +69,20 @@ public class BasicStockQuoteApplication {
      * @throws StockServiceException If data about the stock can't be retrieved. This is a
      *                               fatal error.
      */
-    public String displayStockQuote(StockQuote stockQuote) throws StockServiceException {
+    public String displayStockQuotes(StockQuery stockQuery) throws StockServiceException {
+        StringBuilder stringBuilder = new StringBuilder();
 
-        return stockQuote.toString();
+        List<StockQuote> stockQuotes =
+                stockService.getQuote(stockQuery.getSymbol(),
+                        stockQuery.getFrom(),
+                        stockQuery.getUntil()); // get one quote for each day in the from until date range.
+
+        stringBuilder.append("Stock quotes for: ").append(stockQuery.getSymbol()).append("\n");
+        for (StockQuote stockQuote : stockQuotes) {
+            stringBuilder.append(stockQuote.toString()).append("\n");
+        }
+
+        return stringBuilder.toString();
     }
 
     /**
@@ -107,30 +119,26 @@ public class BasicStockQuoteApplication {
         // be optimistic init to positive values
         ProgramTerminationStatusEnum exitStatus = ProgramTerminationStatusEnum.NORMAL;
         String programTerminationMessage = "Normal program termination.";
-        if (args.length > 2) {
+        if (args.length != 3) {
             exit(ProgramTerminationStatusEnum.ABNORMAL,
-                    "Please supply a stock symbol and (optionally) a date (MM/DD/YYYY)");
+                    "Please supply 3 arguments -- a stock symbol, a start date (yyyy-MM-dd HH:mm:ss) and end date (yyyy-MM-dd HH:mm:ss)");
         }
         try {
 
-            StockQuote stockQuote = new StockQuote (args[0], args[1]);
+            StockQuery stockQuery = new StockQuery(args[0], args[1], args[2]);
             StockService stockService = ServiceFactory.getStockService();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
-            basicStockQuoteApplication.displayStockQuote(stockQuote);
+            basicStockQuoteApplication.displayStockQuotes(stockQuery);
 
         } catch (ParseException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
             programTerminationMessage = "Invalid date data: " + e.getMessage();
-        } catch (StockServiceException e) {
-            exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
-            programTerminationMessage = "StockService failed: " + e.getMessage();
-        }  catch (Throwable t) {
+        } catch (Throwable t) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
             programTerminationMessage = "General application error: " + t.getMessage();
         }
 
         exit(exitStatus, programTerminationMessage);
-        System.out.println("Oops could not parse a date");
     }
 }
