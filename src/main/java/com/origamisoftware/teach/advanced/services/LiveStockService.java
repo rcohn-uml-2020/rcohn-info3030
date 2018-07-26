@@ -36,7 +36,7 @@ class LiveStockService implements StockService {
 
         try {
             price = getStockQuote(symbol).getPrice();
-        } catch (IOException e) {} catch (LiveException e) {System.out.println(e.getMessage());}
+        } catch (IOException e) {System.out.println(e.getMessage());} catch (LiveException e) {}
 
         if (price == null) {
             throw new StockServiceException("Could not get a stock quote for: " + symbol);
