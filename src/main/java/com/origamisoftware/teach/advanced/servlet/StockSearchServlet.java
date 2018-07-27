@@ -71,13 +71,13 @@ public class StockSearchServlet extends HttpServlet {
              dispatcher = getServletContext().getRequestDispatcher("/confusedMood.jsp");
           }
 
-         * However, in this example we only dispatch to one place the moodResponse.jsp page
+         * However, in this example we only dispatch to one place the stockquoteResults.jsp page
          *
          */
 
         ServletContext servletContext = getServletContext();
         RequestDispatcher dispatcher =
-                servletContext.getRequestDispatcher("/moodResponse.jsp");
+                servletContext.getRequestDispatcher("/stockquoteResults.jsp");
         dispatcher.forward(request, response);
 
     }

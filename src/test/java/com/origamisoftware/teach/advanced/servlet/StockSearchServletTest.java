@@ -1,7 +1,9 @@
 package com.origamisoftware.teach.advanced.servlet;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class StockSearchServletTest {
 
+    @Test
+    public void testDoPost(){}
 }
