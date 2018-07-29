@@ -12,13 +12,13 @@ it values to determine what to display to the user.
 --%>
 
 <%-- get the Mood instance out of the session context --%>
-<jsp:useBean id="mood" class="com.origami.teach.model.Mood" scope="session">
-    <c:set target='${mood}'  value='${sessionScope.get("mood")}'/>
+<jsp:useBean id="stockquote" class="com.origamisoftware.teach.advanced.model.StockQuote" scope="session">
+    <c:set target='${stockquote}'  value='${sessionScope.get("stockquote")}'/>
 </jsp:useBean>
 
 <html>
 <head>
-    <title>Mood Response</title>
+    <title>Requested StockQuote</title>
 </head>
 <body>
 
@@ -29,25 +29,10 @@ Note the use of c:if which is a JSTL tag the makes it easy to do if statements i
 JSP code. There JSTL tags for all common  operations
 --%>
 
-Here is the result of call mood.toString() but using JSTL: <br>
-<c:out value="${mood}"/>  <%-- out is like using System.out.println - the ouput will go the page --%>
-<P>
-<c:if test="${mood.happy}">
-    I am glad you are happy!
-</c:if>
-<P>
-<c:if test="${mood.sad}">
-    I am unhappy you are sad!
-</c:if>
-<P>
-<c:if test="${mood.sad and mood.happy}" >
-    I am confused! How you can be both happy and sad at once?
-</c:if>
+Here is the result of call stockquote.toString() but using JSTL: <br>
+<c:out value="${stockquote}"/>  <%-- out is like using System.out.println - the ouput will go the page --%>
 
-
-<P>
-    Thanks for taking our survey.
-</P>
+Please click <A href="stockquote.jsp">here</A> to start a new search.
 
 </body>
 </html>

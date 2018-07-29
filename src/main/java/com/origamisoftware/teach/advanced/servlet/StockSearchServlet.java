@@ -1,6 +1,9 @@
 package com.origamisoftware.teach.advanced.servlet;
 
 import com.origamisoftware.teach.advanced.model.StockQuote;
+import com.origamisoftware.teach.advanced.services.ServiceFactory;
+import com.origamisoftware.teach.advanced.services.StockService;
+import com.origamisoftware.teach.advanced.services.StockServiceException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -10,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.GregorianCalendar;
 
 /**
  * Simple Example of how a servlet can access form submission data
@@ -19,27 +20,9 @@ import java.util.GregorianCalendar;
  */
 public class StockSearchServlet extends HttpServlet {
 
-    private static final String SAD_PARAMETER_KEY = "sad";
-    private static final String HAPPY_PARAMETER_KEY = "happy";
-    private static final String CHECK_BOX_IS_CHECKED_VALUE = "on";
-
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-
-        String sad = request.getParameter(SAD_PARAMETER_KEY);
-        String happy = request.getParameter(HAPPY_PARAMETER_KEY);
-        boolean isSad = false;
-
-        // happy and sad will be null, if not se to 'on' when selected.
-        if (sad!= null && sad.equals(CHECK_BOX_IS_CHECKED_VALUE)) {
-            isSad = true;
-        }
-
-        Boolean isHappy = false;
-        if (happy!= null && happy.equals(CHECK_BOX_IS_CHECKED_VALUE)) {
-            isHappy = true;
-        }
         HttpSession session = request.getSession();
 
          /* Here is where use put an instance of Mood in the session.
@@ -52,8 +35,14 @@ public class StockSearchServlet extends HttpServlet {
           * request and not the entire session.
           *
           */
-        StockQuote mood = new StockQuote(new BigDecimal(100), new GregorianCalendar().getTime(),"AAPL");
-        session.setAttribute("mood", mood);
+
+        StockService stockService = ServiceFactory.getStockService();
+
+        StockQuote stockquote = null;
+
+        try{stockquote = stockService.getQuote("AAPL");} catch (StockServiceException e) {e.getMessage();}
+
+        session.setAttribute("stockquote", stockquote);
 
         /* here is how a servlet can 'forward' to a specific JSP page
          * NOTE: you could easily have conditional code here that

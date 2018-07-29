@@ -5,5 +5,7 @@ import org.junit.Test;
 public class StockSearchServletTest {
 
     @Test
-    public void testDoPost(){}
+    public void testDoPost(){
+
+    }
 }
