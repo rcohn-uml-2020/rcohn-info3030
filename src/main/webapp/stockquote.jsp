@@ -13,33 +13,33 @@ Stock Search<br>
 
 <form name="myform" action="servlets/StockSearchServlet/" method="post">
     What stock would you like to search for?
-    <select>
-        <option name="symbol" title="symbol" value="AAPL">AAPL</option>
-        <option name="symbol" title="symbol" value="AGTK">AGTK</option>
-        <option name="symbol" title="symbol" value="AKAM">AKAM</option>
-        <option name="symbol" title="symbol" value="AOL">AOL</option>
-        <option name="symbol" title="symbol" value="BCOM">BCOM</option>
-        <option name="symbol" title="symbol" value="BCOR">BCOR</option>
-        <option name="symbol" title="symbol" value="BIDU">BIDU</option>
-        <option name="symbol" title="symbol" value="CARB">CARB</option>
-        <option name="symbol" title="symbol" value="CCIH">CCIH</option>
-        <option name="symbol" title="symbol" value="CHIC">CHIC</option>
-        <option name="symbol" title="symbol" value="CNV">CNV</option>
-        <option name="symbol" title="symbol" value="CXDO">CXDO</option>
-        <option name="symbol" title="symbol" value="EDXC">EDXC</option>
-        <option name="symbol" title="symbol" value="FB">FB</option>
-        <option name="symbol" title="symbol" value="GOOG">GOOG</option>
-        <option name="symbol" title="symbol" value="IACI">IACI</option>
-        <option name="symbol" title="symbol" value="INAP">INAP</option>
-        <option name="symbol" title="symbol" value="JCOM">JCOM</option>
-        <option name="symbol" title="symbol" value="LOOK">LOOK</option>
-        <option name="symbol" title="symbol" value="MEET">MEET</option>
-        <option name="symbol" title="symbol" value="MOMO">MOMO</option>
-        <option name="symbol" title="symbol" value="NTES">NTES</option>
-        <option name="symbol" title="symbol" value="NQ">NQ</option>
-        <option name="symbol" title="symbol" value="OTOW">OTOW</option>
-        <option name="symbol" title="symbol" value="VNET">VNET</option>
-        <option name="symbol" title="symbol" value="WIFI">WIFI</option>
+    <select name="symbol" title="symbol">
+        <option value="AAPL">AAPL</option>
+        <option value="AGTK">AGTK</option>
+        <option value="AKAM">AKAM</option>
+        <option value="AOL">AOL</option>
+        <option value="BCOM">BCOM</option>
+        <option value="BCOR">BCOR</option>
+        <option value="BIDU">BIDU</option>
+        <option value="CARB">CARB</option>
+        <option value="CCIH">CCIH</option>
+        <option value="CHIC">CHIC</option>
+        <option value="CNV">CNV</option>
+        <option value="CXDO">CXDO</option>
+        <option value="EDXC">EDXC</option>
+        <option value="FB">FB</option>
+        <option value="GOOG">GOOG</option>
+        <option value="IACI">IACI</option>
+        <option value="INAP">INAP</option>
+        <option value="JCOM">JCOM</option>
+        <option value="LOOK">LOOK</option>
+        <option value="MEET">MEET</option>
+        <option value="MOMO">MOMO</option>
+        <option value="NTES">NTES</option>
+        <option value="NQ">NQ</option>
+        <option value="OTOW">OTOW</option>
+        <option value="VNET">VNET</option>
+        <option value="WIFI">WIFI</option>
     </select>
     <br>
     <input type="SUBMIT" value="OK">
