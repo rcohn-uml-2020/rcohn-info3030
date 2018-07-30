@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.origamisoftware.teach.effective</groupId>
     <artifactId>week-5-stock-ticker</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>starter-app</name>
     <url>http://maven.apache.org</url>
@@ -84,6 +84,12 @@
    		<groupId>org.apache.tomcat.embed</groupId>
     		<artifactId>tomcat-embed-core</artifactId>
     		<version>7.0.90</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
 	</dependency>
 
     <!-- https://mvnrepository.com/artifact/com.yahoofinance-api/YahooFinanceAPI -->

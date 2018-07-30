@@ -136,3 +136,11 @@ target/surefire-reports/com.origamisoftware.teach.advanced.services.DatabaseStoc
 target/classes/hibernate.cfg.xml
 target/surefire-reports/TEST-com.origamisoftware.teach.advanced.util.XMLUtilsTest.xml
 target/surefire-reports/com.origamisoftware.teach.advanced.util.XMLUtilsTest.txt
+target/maven-archiver/pom.properties
+target/surefire-reports/com.origamisoftware.teach.advanced.servlet.StockSearchServletTest.txt
+target/surefire-reports/TEST-com.origamisoftware.teach.advanced.servlet.StockSearchServletTest.xml
+target/week-5-stock-ticker-1.0-SNAPSHOT/index.jsp
+target/week-5-stock-ticker-1.0-SNAPSHOT/stockquote.jsp
+target/week-5-stock-ticker-1.0-SNAPSHOT/stockquoteResults.jsp
+target/week-5-stock-ticker-1.0-SNAPSHOT/WEB-INF/web.xml
+target/week-5-stock-ticker-1.0-SNAPSHOT/META-INF/MANIFEST.MF
